@@ -5,7 +5,7 @@
     <style type="text/css">
       #sitebody {
         margin: 0 auto;
-        font-size: 13px;
+        
       }
       #header {
         background-color: #ffd4d4;
@@ -85,12 +85,17 @@
         </div>
         <div id="Video_Message_Display_container">
           <div id="video_container" >
-            <img id="Video_Image" src="Web_icon/ai.png" style="height: 200px;width: 250px;"><img>
+            <div id="video_image_container" style="display:inline;">
+              <!--
+                <img id="Video_Image" src="Web_icon/ai.png" ><img>
+              -->
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/LGTbdjoEBVM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
             <!--影片縮圖 預計200*250px-->
-            <div id="Video_info_container">
-              <a>影片標題</a>
+            <div id="Video_info_container" style="display:inline;">
+              <a style="font-size: 50px;">影片標題</a>
               <a href="https://www.youtube.com/">#影片超連結:</a>
-              <a>#影片關鍵字:範例一/範例二/範例三</a>
+              <a >#影片關鍵字:範例一/範例二/範例三</a>
             </div>
           </div>
           </div>
