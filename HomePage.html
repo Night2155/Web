@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style type="text/css">
+      #sitebody {
+        margin: 0 auto;
+        font-size: 13px;
+      }
+      #header {
+        background-color: #ffd4d4;
+        height: 150px;
+        text-align: center;
+        line-height: 80px;
+      }
+      /*
+      #sidebar_left {
+        background-color: #ffecc9;
+        width: 120px;
+        height: 400px;
+        text-align: center;
+        line-height: 400px;
+        float: left;
+      }
+      */
+      #sidebar_right {
+        background-color: #ffecc9;
+        width: 120px;
+        height: 400px;
+        text-align: center;
+        line-height: 400px;
+        float: right;
+      }
+
+      #content {
+        /*
+        margin-left: 120px;
+        margin-right: 120px;*/
+        height: 400px;
+        background-color: #f2fff2;
+        /*text-align: center;*/
+        line-height: 80px;
+      }
+      #footer {
+        clear: both;
+        background-color: #ffd4d4;
+        height: 80px;
+        text-align: center;
+        line-height: 80px;
+      }
+      #video_info_container{
+        display: grid;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="sitebody">
+      <div id="header">
+        <div id="Icon_Container">
+          <a id="HomePage_Icon1">英文教學影片</a>
+          <a id="HomePage_Icon2">搜尋小助手</a>
+        </div>
+        <div id="Top_Menu_Container">
+          <a id="HomePage">Home_Page</a>
+          <a id="Video_List_Page">Videos</a>
+        </div>
+      </div>
+      <!--
+      <div id="sidebar_left">sidebar_left</div>
+      <div id="sidebar_right">sidebar_right</div>
+      --->
+      <div id="content">
+        <div id="Search_Bar_container">
+          <input
+            id="Search_Bar"
+            placeholder="請輸入關鍵字搜尋 (Please Type In Search Key)"
+            style="width: 500px"
+          />
+        </div>
+        <div id="Video_Message_Display_container">
+          <div id="video_container" style="height:100px">
+            <img id="Video_Image" src="Web_icon/ai.png" style="width: 150px;"><img>
+            <div id="Video_info_container">
+              <a>影片標題</a>
+              <a href="https://www.youtube.com/">#影片超連結:</a>
+              <a>#影片關鍵字:範例一/範例二/範例三</a>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div id="footer">footer</div>
+    </div>
+  </body>
+</html>
