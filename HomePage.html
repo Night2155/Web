@@ -6,12 +6,14 @@
   <style type="text/css">
     #sitebody {
       margin: 0 auto;
-
+      max-height: 900px;
+      max-width: auto;
     }
 
     #header {
       background-color: #ffd4d4;
-      height: 150px;
+      height: 40%;
+      width: 100%;
       text-align: center;
       line-height: 80px;
     }
@@ -39,18 +41,43 @@
       /*
         margin-left: 120px;
         margin-right: 120px;*/
-      height: 400px;
-      background-color: #f2fff2;
+      height: 600%;
+      width: 100%;
+      padding: 15px;
+      background-color: #d8f4fe;
+      display: flex;
+      flex-direction: column;
       /*text-align: center;*/
-      line-height: 80px;
+      line-height: 50px;
     }
-
+    #Search_Bar{
+      width: 60%;
+      padding: 10px 0 10px 40px;
+      fill: #ffecc9;
+      border-radius: 30px;
+      border-style: none;
+      background-image:url("Web_icon/search-outline.svg");
+      background-color: white;
+      background-position: 5px;
+      background-repeat: no-repeat;
+      background-size: 24px 24px;
+    }
+    #Search_Bar_container{
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #Video_info_container{
+      display: flex;
+      flex-direction: column;
+    }
     #footer {
       clear: both;
       background-color: #ffd4d4;
       height: 80px;
       text-align: center;
-      line-height: 80px;
+      line-height: 30px;
     }
   </style>
   <!--不要刪除下面兩個Script標籤-->
@@ -77,28 +104,28 @@
       --->
     <!------------------網頁中心 放置影片內容------------------->
     <div id="content">
+      <!--搜尋欄-->
       <div id="Search_Bar_container">
-        <input id="Search_Bar" placeholder="請輸入關鍵字搜尋 (Please Type In Search Key)" style="width: 500px" />
-        <button id="search_btn">
-          <ion-icon name="search-outline"></ion-icon>
-        </button>
+        <input id="Search_Bar" placeholder="請輸入關鍵字搜尋(Keywords)"/>
       </div>
-      <div id="Video_Message_Display_container">
+      <!--影片資料放在這-->
+      <div id="Video_Message_Display_container" style="padding: 15px;">
         <div id="video_container" style="display: flex;">
           <div id="video_image_container">
             <!--
                 <img id="Video_Image" src="Web_icon/ai.png" ><img>
               -->
-            <iframe width="150" height="100" src="https://www.youtube.com/embed/LGTbdjoEBVM"
+            <iframe width="300" height="250" src="https://www.youtube.com/embed/LGTbdjoEBVM"
               title="YouTube video player" frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen></iframe>
           </div>
           <!--影片縮圖 預計200*250px-->
-          <div id="Video_info_container">
-            <a style="font-size: 50px; display: block;">影片標題</a>
-            <a href="https://www.youtube.com/" style="display:block;">#影片超連結:</a>
-            <a style="display: block;">#影片關鍵字:範例一/範例二/範例三</a>
+          <div id="Video_info_container" style="padding-left: 15px;">
+            <!--影片資訊-->
+            <a id="Video_title" style="font-size: 50px;;">影片標題</a>
+            <a id="Video_reference" href="https://www.youtube.com/" >#影片超連結:</a>
+            <a id="Video_keywords">#影片關鍵字:範例一/範例二/範例三</a>
           </div>
         </div>
       </div>
