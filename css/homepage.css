@@ -1,0 +1,75 @@
+#sitebody {
+    margin: 0 auto;
+    max-height: 900px;
+    max-width: auto;
+  }
+
+  #header {
+    background-color: #ffd4d4;
+    height: 40%;
+    width: 100%;
+    text-align: center;
+    line-height: 80px;
+  }
+
+  /*
+    #sidebar_left {
+      background-color: #ffecc9;
+      width: 120px;
+      height: 400px;
+      text-align: center;
+      line-height: 400px;
+      float: left;
+    }
+    */
+  #sidebar_right {
+    background-color: #ffecc9;
+    width: 120px;
+    height: 400px;
+    text-align: center;
+    line-height: 400px;
+    float: right;
+  }
+
+  #content {
+    /*
+      margin-left: 120px;
+      margin-right: 120px;*/
+    height: 600%;
+    /*width: 100%;*/
+    padding: 15px;
+    background-color: #d8f4fe;
+    display: flex;
+    flex-direction: column;
+    /*text-align: center;*/
+    line-height: 50px;
+  }
+  #Search_Bar{
+    width: 60%;
+    padding: 10px 0 10px 40px;
+    fill: #ffecc9;
+    border-radius: 30px;
+    border-style: none;
+    background-image:url("Web_icon/search-outline.svg");
+    background-color: white;
+    background-position: 5px;
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+  }
+  #Search_Bar_container{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #Video_info_container{
+    display: flex;
+    flex-direction: column;
+  }
+  #footer {
+    clear: both;
+    background-color: #ffd4d4;
+    height: 80px;
+    text-align: center;
+    line-height: 30px;
+  }
