@@ -13,19 +13,16 @@
   <div id="sitebody">
     <!--------網頁頂部----------->
     <div id="header">
-      <div id="Icon_Container">
-        <a id="HomePage_Icon1">英文教學影片</a>
-        <a id="HomePage_Icon2">搜尋小助手</a>
+      <div id="Web_Header">
+        <a id="Header_Icon">英文教學影片 搜尋小助手</a>
       </div>
-      <div id="Top_Menu_Container">
-        <a id="HomePage">Home_Page</a>
-        <a id="Video_List_Page">Videos</a>
+      <div class="topnav">
+        <a href="#">Home_Page</a>
+        <a href="#">文法</a>
+        <a href="#">片語</a>
+        <a href="#">單字</a>
       </div>
     </div>
-    <!--
-      <div id="sidebar_left">sidebar_left</div>
-      <div id="sidebar_right">sidebar_right</div>
-      --->
     <!------------------網頁中心 放置影片內容------------------->
     <div id="content">
       <!--搜尋欄-->
@@ -33,8 +30,8 @@
         <input id="Search_Bar" placeholder="請輸入關鍵字搜尋(Keywords)"/>
       </div>
       <!--影片資料放在這-->
-      <div id="Video_Message_Display_container" style="padding: 15px;">
-        <div id="video_container" style="display: flex;">
+      <div id="Video_Message_Display_container" >
+        <div id="video_container">
           <div id="video_image_container">
             <!--
                 <img id="Video_Image" src="Web_icon/ai.png" ><img>
@@ -45,18 +42,17 @@
               allowfullscreen></iframe>
           </div>
           <!--影片縮圖 預計200*250px-->
-          <div id="Video_info_container" style="padding-left: 15px;">
+          <div id="Video_info_container">
             <!--影片資訊-->
-            <a id="Video_title" style="font-size: 50px;;">影片標題</a>
+            <a id="Video_title">影片標題</a>
             <a id="Video_reference" href="https://www.youtube.com/" >#影片超連結:</a>
             <a id="Video_keywords">#影片關鍵字:範例一/範例二/範例三</a>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <!--------網頁最下面的部分---------->
-  <div id="footer">footer</div>
+    <!--------網頁最下面的部分---------->
+    <div id="footer">footer</div>
   </div>
 </body>
 
