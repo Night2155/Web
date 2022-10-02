@@ -19,20 +19,30 @@
     font-weight: bold;
 }
 
+#Robot_Icon{
+    color: black;
+    height: 40%;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+
 .topnav{
     height: 50%;
     background-color:#ffd4d4
 }
 
 .topnav a{
-  color: #333;
-  text-align: center;
-  text-decoration: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
 }
 
 .topnav a:hover{
-  background-color: #ffd4d4;
-  color: red;
+    background-color: #ffd4d4;
+    color: red;
 }
 
 /*
@@ -60,7 +70,6 @@
       margin-right: 120px;*/
     background-color: #d8f4fe;
     height: 600%;
-    /* width: 50%; */
     padding: 15px;
     display: flex;
     flex-direction: column;
