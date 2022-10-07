@@ -90,15 +90,15 @@
     fill: #ffecc9;
     border-radius: 30px;
     border-style: none;
-    background-image: url("Web_icon/search-outline.svg");
+    background-image: url("/Web_icon/serch_gray.png");
+    background-size: 24px 24px;
     background-color: white;
     background-position: 5px;
     background-repeat: no-repeat;
-    background-size: 24px 24px;
+    outline: none;
 }
 
 #Search_Bar_container {
-
     display: flex;
     justify-content: center;
     align-items: center;
