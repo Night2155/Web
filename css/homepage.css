@@ -4,13 +4,13 @@
     max-width: auto;
 }
 
-/* #header {
+#header {
     background-color: #ffd4d4;
     height: 40%;
     width: 100%;
     text-align: center;
     line-height: 80px;
-} */
+}
 
 #Web_Header {
     padding: 10px;
@@ -38,6 +38,7 @@
 }
 
 .topnav{
+    padding: 10px;
     font-size: 25px;
     text-align: center;
     height: 50%;
@@ -55,16 +56,16 @@
     color: red;
 }
 
-/*
-    #sidebar_left {
-      background-color: #ffecc9;
-      width: 120px;
-      height: 400px;
-      text-align: center;
-      line-height: 400px;
-      float: left;
-    }
-    */
+
+#sidebar_left {
+    background-color: #ffecc9;
+    width: 120px;
+    height: 400px;
+    text-align: center;
+    line-height: 400px;
+    float: left;
+}
+   
 #sidebar_right {
     background-color: #ffecc9;
     width: 120px;
@@ -75,17 +76,13 @@
 }
 
 #content {
-    /*
-      margin-left: 120px;
-      margin-right: 120px;*/
     background-color: #d8f4fe;
     height: 600%;
     padding: 15px;
     display: flex;
     flex-direction: column;
-    /*text-align: center;*/
     line-height: 50px;
-}
+} 
 
 #Search_Bar {
     width: 60%;
