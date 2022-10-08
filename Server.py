@@ -48,9 +48,9 @@ class VC_id(db.Model):
 
 @app.route("/", methods=['GET', 'POST'])
 def homepage():
-    # return render_template("HomePage.html")
-    query = VC_id.query.filter_by(id="5").first()
-    return query.Title
+    return render_template("DemoHomepage.html")
+    # query = VC_id.query.filter_by(id="5").first()
+    # return query.Title
 
 
 if __name__ == "__main__":
