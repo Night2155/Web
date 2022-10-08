@@ -14,13 +14,23 @@ def read_all_file(directory: str):
             csvwriter = open(directory+csvname+"_csv.txt",
                              "w", encoding="UTF-8")
             csvwriter.write("Video_Title,VideoID,ChannelID\n")
+
             for row in filereader:
+                row_number += 1
                 if row != "\n":
-                    text_line = re.split(" : ", row)
-                    file_text += text_line[1].replace("\n", ",")
+                    if row_number == 1:
+                        text_line = re.split("Title : ", row)
+                        file_text += text_line[-1].replace("\n", ",")
+                    if row_number == 2:
+                        text_line = re.split("VideoID : ", row)
+                        file_text += text_line[-1].replace("\n", ",")
+                    if row_number == 3:
+                        text_line = re.split("ChannelID : ", row)
+                        file_text += text_line[-1].replace("\n", "")
                 if row == "\n":
                     csvwriter.write(file_text+"\n")
                     file_text = ""
+                    row_number = 0
             csvwriter.close()
             filereader.close()
         else:
