@@ -279,8 +279,8 @@
                     class="display-tc animate-box"
                     data-animate-effect="fadeIn"
                   >
-                    <h1>資訊影片檢索</h1>
-                    <h2>( Relevance video learning )</h2>
+                    <h1>英文教學影片檢索</h1>
+                    <h2>( English Learning Video Search )</h2>
                   </div>
                 </div>
               </div>
@@ -565,6 +565,7 @@
           <h2 style="margin-left: 20px">推薦影片</h2>
           <div class="project-content">
             <div id="video_container">
+              <!--
               <div id="video_image_container">
                 <iframe
                   width="300"
@@ -577,16 +578,30 @@
                 >
                 </iframe>
               </div>
+            -->
               <!--影片縮圖 預計200*250px-->
               <div id="Video_info_container">
                 <!--影片資訊-->
                 {% for vc_id in vc_id %}
-                <a id="Video_title">{{vc_id.Title}}</a>
-                <a id="Video_reference">影片超連結:{{vc_id.video_id}}</a>
-
-                <a id="Video_keywords"
-                  >影片關鍵字:{{vc_id.video_keywords.video_keywords}}</a
-                >
+                <div id="abc">
+                  <p>
+                    <a id="Video_title">{{vc_id.Title}}</a>
+                  </p>
+                  <p>
+                    <a
+                      id="Video_reference"
+                      href="https://www.youtube.com/watch?v={{vc_id.video_id}}"
+                      target="_blank"
+                      >影片超連結</a
+                    >
+                  </p>
+                  <p>
+                    <a id="Video_keywords"
+                      >影片關鍵字:{{vc_id.video_keywords.video_keywords}}</a
+                    >
+                  </p>
+                  <br />
+                </div>
                 {% endfor %}
               </div>
             </div>
