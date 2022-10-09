@@ -15,28 +15,33 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://DESKTOP-GPKL4Q4\SQLEXPRESS/Video_data?driver=SQL+Server'
 db = SQLAlchemy(app)
 
-# 標題、影片ID、頻道ID的資料表
-# vc_id_metadata = MetaData()
-# vc_id = Table('video_and_channel_id', vc_id_metadata,
-#               Column('id', INT, primary_key=True),
-#               Column('Title', NVARCHAR(max)),
-#               Column('video_id', NVARCHAR(max)),
-#               Column('channel_id', NVARCHAR(max))
-#               )
+
+class V_keywords(db.Model):
+    __tablename__ = 'video_keywords'
+    uid = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(max))
+    video_keywords = db.Column(db.String(max))
+    db_keywords_id = db.relationship("VC_id", backref="video_keywords")
+
+    def __init__(self, id, title, video_keywords):
+        self.id = id
+        self.title = title
+        self.video_keywords = video_keywords
 
 
 class VC_id(db.Model):
     __tablename__ = 'video_and_channel_id'
-    id = db.Column(db.Integer, primary_key=True)
-    Title = db.Column(db.String(max), primary_key=True)
-    video_id = db.Column(db.String(max), primary_key=True)
-    channel_id = db.Column(db.String(max), primary_key=True)
+    id = db.Column(db.Integer, db.ForeignKey(
+        'video_keywords.uid'), primary_key=True)
+    Title = db.Column(db.String(max))
+    video_id = db.Column(db.String(max))
+    channel_id = db.Column(db.String(max))
 
-    def __init__(self, id, Title, video_id, channel_id):
-        self.id = id
+    def __init__(self, Title, video_id, channel_id):
         self.Title = Title
         self.video_id = video_id
         self.channel_id = channel_id
+
 
 # Session = sessionmaker()
 # Session.configure(bind=db)
@@ -48,9 +53,8 @@ class VC_id(db.Model):
 
 @app.route("/", methods=['GET', 'POST'])
 def homepage():
-    return render_template("DemoHomepage.html")
-    # query = VC_id.query.filter_by(id="5").first()
-    # return query.Title
+
+    return render_template("DemoHomepage.html", vc_id=VC_id.query.all(), v_keywords=V_keywords.query.all())
 
 
 if __name__ == "__main__":

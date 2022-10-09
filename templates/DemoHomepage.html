@@ -1,15 +1,20 @@
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+  <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
-    <meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+    <meta
+      name="description"
+      content="Free HTML5 Website Template by freehtml5.co"
+    />
+    <meta
+      name="keywords"
+      content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive"
+    />
     <meta name="author" content="freehtml5.co" />
 
     <title>英語互動式機器人</title>
@@ -39,113 +44,119 @@
     <meta name="twitter:url" content="" />
     <meta name="twitter:card" content="" />
 
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800"
+      rel="stylesheet"
+    />
 
     <!-- Animate.css -->
-    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="static/css/animate.css" />
     <!-- Icomoon Icon Fonts-->
-    <link rel="stylesheet" href="css/icomoon.css" />
+    <link rel="stylesheet" href="static/css/icomoon.css" />
     <!-- Bootstrap  -->
-    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="static/css/bootstrap.css" />
     <!-- Owl Carousel  -->
-    <link rel="stylesheet" href="css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="static/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="static/css/owl.theme.default.min.css" />
     <!-- Theme style  -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="static/css/style.css" />
     <!-- Modernizr JS -->
-    <script src="js/modernizr-2.6.2.min.js"></script>
+    <script src="static/js/modernizr-2.6.2.min.js"></script>
 
     <!-- FOR IE9 below -->
     <!--[if lt IE 9]>
-		<script src="js/respond.min.js"></script>
-		<![endif]-->
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
 
-    <script type='text/javascript' src='https://code.jquery.com/jquery-1.9.1.min.js'></script>
-    <link rel="stylesheet" type="text/css" href="css/Sidebar.css" />
-    <script src="js/Sidebar.js" type='text/javascript'></script>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-1.9.1.min.js"
+    ></script>
+    <link rel="stylesheet" type="text/css" href="static/css/Sidebar.css" />
+    <script src="static/js/Sidebar.js" type="text/javascript"></script>
 
     <style>
-        #boxclose {
-            position: absolute;
-            cursor: pointer;
-            color: #fff;
-            border: 1px solid #AEAEAE;
-            border-radius: 3px;
-            background: #222222;
-            font-size: 40px;
-            font-weight: bold;
-            display: inline-block;
-            line-height: 0px;
-            padding: 15px 8px 8px 15px;
-            left: 200px;
-            top: 130px;
-            z-index: -1;
-            opacity: 0.5;
-        }
+      #boxclose {
+        position: absolute;
+        cursor: pointer;
+        color: #fff;
+        border: 1px solid #aeaeae;
+        border-radius: 3px;
+        background: #222222;
+        font-size: 40px;
+        font-weight: bold;
+        display: inline-block;
+        line-height: 0px;
+        padding: 15px 8px 8px 15px;
+        left: 200px;
+        top: 130px;
+        z-index: -1;
+        opacity: 0.5;
+      }
 
-        #myVideo:hover ~ #boxclose {
-            z-index: 2;
-        }
+      #myVideo:hover ~ #boxclose {
+        z-index: 2;
+      }
 
-        #boxclose:hover {
-            z-index: 2;
-        }
+      #boxclose:hover {
+        z-index: 2;
+      }
     </style>
 
     <script>
-        $(document).keypress(
-          function (event) {
-            if (event.which == '13') {
-                event.preventDefault();
-            }
-        });
-        function check_form() {
-            if (chkspc(document.form1.customer.value) == "0") {
-                alert("不可有空格或空白");
-                return false;
-            }
+      $(document).keypress(function (event) {
+        if (event.which == "13") {
+          event.preventDefault();
+        }
+      });
+      function check_form() {
+        if (chkspc(document.form1.customer.value) == "0") {
+          alert("不可有空格或空白");
+          return false;
+        }
+      }
+
+      function chkspc(a) {
+        var i = a.length;
+        var j = 0;
+        var k = 0;
+
+        while (k < i) {
+          if (a.charAt(k) != " ") j = j + 1;
+          k = k + 1;
         }
 
-        function chkspc(a) {
-            var i = a.length;
-            var j = 0;
-            var k = 0;
-
-            while (k < i) {
-                if (a.charAt(k) != " ")
-                    j = j + 1;
-                k = k + 1;
-            }
-
-            if (j == 0)
-            { return 0; }
-
-            if (i != j)
-            { return 2; }
-            else
-            { return 1; }
+        if (j == 0) {
+          return 0;
         }
+
+        if (i != j) {
+          return 2;
+        } else {
+          return 1;
+        }
+      }
     </script>
-</head>
-<body> 
+  </head>
+  <body>
     <form id="form1" runat="server">
-        <style type="text/css">
-            .textarea {
-                width: 254px;
-                height: 40px;
-                position: absolute;
-                background: none;
-                z-index: 9;
-            }
+      <style type="text/css">
+        .textarea {
+          width: 254px;
+          height: 40px;
+          position: absolute;
+          background: none;
+          z-index: 9;
+        }
 
-            .note {
-                position: absolute;
-                line-height: 20px;
-                padding: 3px 5px;
-            }
-        </style>
+        .note {
+          position: absolute;
+          line-height: 20px;
+          padding: 3px 5px;
+        }
+      </style>
 
-       <!-- <div class="side_menu">
+      <!-- <div class="side_menu">
 
              <div class="burger_box">
 				<div class="menu-icon-container"> 
@@ -173,12 +184,12 @@
 
         </div>-->
 
-        <div class="fh5co-loader"></div>
+      <div class="fh5co-loader"></div>
 
-        <!-- #page -->
-        <div id="page">
-            <nav class="fh5co-nav" role="navigation">
-                <!-- <div class="top">
+      <!-- #page -->
+      <div id="page">
+        <nav class="fh5co-nav" role="navigation">
+          <!-- <div class="top">
 					<div class="container">
 						<div class="row">
 							<div class="col-xs-12 text-right">
@@ -193,185 +204,273 @@
 					</div>
 				</div> -->
 
-                <div class="top-menu">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-2">
-                                <div id="fh5co-logo">
-                                    <a href="ChatBubble.html">英文教學影片小助手</a>
-                                </div>
-                                <!-- <div id="fh5co-logo"><a href="#">Video<span>.</span></a></div> -->
-                            </div>
-                            <div class="col-xs-10 text-right menu-1">
-                                <ul>
-                                    <!-- <li class="active"><a href="index.aspx">HOME</a></li> -->
-                                    <li class="active">
-                                        <a href="#">HOME</a>
-                                    </li>
-                                    <li class="active has-dropdown">
-                                        <a href="#">VIDEO</a>
-                                        <!-- <a href="all_video_model.aspx">VIDEO</a>
+          <div class="top-menu">
+            <div class="container">
+              <div class="row">
+                <div class="col-xs-2">
+                  <div id="fh5co-logo">
+                    <a href="template/ChatBubble.html">英文教學影片小助手</a>
+                  </div>
+                  <!-- <div id="fh5co-logo"><a href="#">Video<span>.</span></a></div> -->
+                </div>
+                <div class="col-xs-10 text-right menu-1">
+                  <ul>
+                    <!-- <li class="active"><a href="index.aspx">HOME</a></li> -->
+                    <li class="active">
+                      <a href="#">HOME</a>
+                    </li>
+                    <li class="active has-dropdown">
+                      <a href="#">VIDEO</a>
+                      <!-- <a href="all_video_model.aspx">VIDEO</a>
                                         <a href="ytvideo.aspx">VIDEO</a>
                                         <ul class="dropdown">
                                             <li><a href="tedvideo.aspx">Ted</a></li>
                                             <li><a href="ytvideo.aspx">Calculus</a></li>
                                         </ul> -->
-                                    </li>
-                                    <li class="active">
-                                        <a href="#">GRAMMAR</a>
-                                    </li>
-                                    <!-- <li class="active"><a href="article.aspx">ARTICLE</a></li> -->
-                                    <li class="active has-dropdown">
-                                        <a href="#">PHRASE</a>
-                                        <!-- <a href="all_graph_model.aspx">GRAPH</a> -->
-                                        <!-- <ul class="dropdown">
+                    </li>
+                    <li class="active">
+                      <a href="#">GRAMMAR</a>
+                    </li>
+                    <!-- <li class="active"><a href="article.aspx">ARTICLE</a></li> -->
+                    <li class="active has-dropdown">
+                      <a href="#">PHRASE</a>
+                      <!-- <a href="all_graph_model.aspx">GRAPH</a> -->
+                      <!-- <ul class="dropdown">
                                             <li><a href="bar_graph.aspx">Bar</a></li>
 
                                             <li><a href="scatter_graph.aspx">Scatter</a></li>
                                         </ul> -->
-                                    </li>
+                    </li>
 
-                                    <li class="active">
-                                        <a href="#">VOCABULARY</a>
-                                        <!-- <a href="http://ilearning.csie.stust.edu.tw/">Contact</a> -->
-                                    </li>
-                                    <li class="active">
-                                        <asp:Button ID="Button2" CssClass="hyper_text" runat="server" Text="登出" OnClick="Button2_Click" />
-                                    </li>
-
-                                </ul>
-                            </div>
-
-                        </div>
-                    </div>
+                    <li class="active">
+                      <a href="#">VOCABULARY</a>
+                      <!-- <a href="http://ilearning.csie.stust.edu.tw/">Contact</a> -->
+                    </li>
+                    <li class="active">
+                      <asp:Button
+                        ID="Button2"
+                        CssClass="hyper_text"
+                        runat="server"
+                        Text="登出"
+                        OnClick="Button2_Click"
+                      />
+                    </li>
+                  </ul>
                 </div>
+              </div>
+            </div>
+          </div>
+        </nav>
 
-            </nav>
+        <header
+          id="fh5co-header"
+          class="fh5co-cover fh5co-cover-sm"
+          role="banner"
+          style="background-image: url(images/tech.jpg)"
+          data-stellar-background-ratio="0.5"
+        >
+          <div class="overlay"></div>
 
-            <header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image: url(images/tech.jpg);" data-stellar-background-ratio="0.5">
-                <div class="overlay"></div>
-
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2 text-center">
-                            <div class="display-t">
-                                <div class="display-tc animate-box" data-animate-effect="fadeIn">
-                                    <h1>資訊影片檢索</h1>
-                                    <h2>( Relevance video learning ) </h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2 text-center">
+                <div class="display-t">
+                  <div
+                    class="display-tc animate-box"
+                    data-animate-effect="fadeIn"
+                  >
+                    <h1>資訊影片檢索</h1>
+                    <h2>( Relevance video learning )</h2>
+                  </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </header>
 
-            </header>
-
-
-            <div id="fh5co-project" style="padding-top: 0%">
-
-                <div class="container">
-                    <div class="row animate-box text-center fh5co-heading" style="margin-bottom: 20px">
-                        <!--<form style="width: 800;"  method="POST" enctype="application/x-www-form-urlencoded" name="form1" onclick="getViedoData()">
+        <div id="fh5co-project" style="padding-top: 0%">
+          <div class="container">
+            <div
+              class="row animate-box text-center fh5co-heading"
+              style="margin-bottom: 20px"
+            >
+              <!--<form style="width: 800;"  method="POST" enctype="application/x-www-form-urlencoded" name="form1" onclick="getViedoData()">
 							<input rows="4" cols="50" style="margin-top: 30px; width:600px; height:40px" maxlength ="100" wrap="OFF" name="customer" placeholder = " 請輸入關鍵字(Please Input Keywords)"></textarea>
 							<input type="submit" class="btn btn-lg btn-danger" style="margin-left:10px; width: 130px" value="Search" name="submit">
 							<button type="button" class="btn btn-lg btn-danger" style="margin-left:5px; " data-toggle="popover" data-trigger="focus" data-placement="top" title="輸入格式如下 :" data-content="資訊/科技/...">輸入查詢指南</button>
 
 						</form>-->
-                        <input rows="4" cols="50" style="margin-top: 30px; width: 600px; height: 40px" maxlength="100" wrap="OFF" name="customer" id="keywordText" placeholder=" 請輸入關鍵字(Please Input Keywords)" />
-                        <button type="button" class="btn btn-lg btn-danger" style="margin-left: 10px; width: 130px" value="Search" name="submit" onclick="getViedoData()">Search</button>
-                        <button type="button" class="btn btn-lg btn-danger" style="margin-left: 5px;" data-toggle="popover" data-trigger="focus" data-placement="top" title="輸入格式如下 :" data-content="資訊/科技/...">輸入查詢指南</button>
-                    </div>
-                </div>
-                <script>
-                    function videoOnload() {
-                        $.ajax({
-                            url: "ytvideoOnload.aspx",//获取数据的URL
-                            data: { onload: "onload" },
-                            cache: false,
-                            type: "POST",//HTTP请求方法
-                            dataType: 'JSON',//获取数据执行方式
-                            success: function (data)
-                            {
-                                $(document.getElementsByClassName("project-content")).html("");
-                                for (var i = 0; i < data.length; i++) {
-                                    var top = '<div class="col-forth">';
-                                    var img = '<div class="project animate-box" style="background-image:url(' + data[i].img + ');">';
-                                    var url = '<a href="' + data[i].url + '" target="_blank" class="desc">';
-                                    var poster = '<span calss="poster"><strong>' + data[i].poster + '</strong></span><br />';
-                                    
-                                    var postdate = data[i].postdate.split("T")[0];
-                                    var posted = '<span calss="posted"><strong>' + postdate + '</strong></span>';
-                                    var title = '<h3 class="title">' + data[i].title + '</h3>';
-                                    var keywords = '<span><strong>Keywords :</strong></span><textarea rows="4" cols="50" style="width:254px; height:40px" maxlength ="100" placeholder = "' + data[i].totalKeyword + '" readonly=""></textarea>';
-                                    var end = '</a></div></div>'
-                                    var abc = top + img + url + poster + posted + title + keywords + end;
-                                    $(document.getElementsByClassName("project-content")).append(abc);
-                                }
-                                
+              <input
+                rows="4"
+                cols="50"
+                style="margin-top: 30px; width: 600px; height: 40px"
+                maxlength="100"
+                wrap="OFF"
+                name="customer"
+                id="keywordText"
+                placeholder=" 請輸入關鍵字(Please Input Keywords)"
+              />
+              <button
+                type="button"
+                class="btn btn-lg btn-danger"
+                style="margin-left: 10px; width: 130px"
+                value="Search"
+                name="submit"
+                onclick="getViedoData()"
+              >
+                Search
+              </button>
+              <button
+                type="button"
+                class="btn btn-lg btn-danger"
+                style="margin-left: 5px"
+                data-toggle="popover"
+                data-trigger="focus"
+                data-placement="top"
+                title="輸入格式如下 :"
+                data-content="資訊/科技/..."
+              >
+                輸入查詢指南
+              </button>
+            </div>
+          </div>
+          <script>
+            function videoOnload() {
+              $.ajax({
+                url: "ytvideoOnload.aspx", //获取数据的URL
+                data: { onload: "onload" },
+                cache: false,
+                type: "POST", //HTTP请求方法
+                dataType: "JSON", //获取数据执行方式
+                success: function (data) {
+                  $(document.getElementsByClassName("project-content")).html(
+                    ""
+                  );
+                  for (var i = 0; i < data.length; i++) {
+                    var top = '<div class="col-forth">';
+                    var img =
+                      '<div class="project animate-box" style="background-image:url(' +
+                      data[i].img +
+                      ');">';
+                    var url =
+                      '<a href="' +
+                      data[i].url +
+                      '" target="_blank" class="desc">';
+                    var poster =
+                      '<span calss="poster"><strong>' +
+                      data[i].poster +
+                      "</strong></span><br />";
 
-                            },
-                            error: function (err) {
-                                alert('连接失败');
-                            }
-                        });
+                    var postdate = data[i].postdate.split("T")[0];
+                    var posted =
+                      '<span calss="posted"><strong>' +
+                      postdate +
+                      "</strong></span>";
+                    var title = '<h3 class="title">' + data[i].title + "</h3>";
+                    var keywords =
+                      '<span><strong>Keywords :</strong></span><textarea rows="4" cols="50" style="width:254px; height:40px" maxlength ="100" placeholder = "' +
+                      data[i].totalKeyword +
+                      '" readonly=""></textarea>';
+                    var end = "</a></div></div>";
+                    var abc =
+                      top +
+                      img +
+                      url +
+                      poster +
+                      posted +
+                      title +
+                      keywords +
+                      end;
+                    $(
+                      document.getElementsByClassName("project-content")
+                    ).append(abc);
+                  }
+                },
+                error: function (err) {
+                  alert("连接失败");
+                },
+              });
+            }
+          </script>
+          <script>
+            function getViedoData() {
+              var keywordValue = document.getElementById("keywordText").value;
+              console.log(keywordValue);
+              if (keywordValue == "") {
+                alert("不可有空格或空白");
+              } else {
+                $.ajax({
+                  url: "ytvideoAjax.aspx", //获取数据的URL
+                  data: { keyword: keywordValue },
+                  cache: false,
+                  type: "POST", //HTTP请求方法
+                  dataType: "JSON", //获取数据执行方式
+                  success: function (data) {
+                    console.log(data);
+                    $(document.getElementsByClassName("project-content")).html(
+                      ""
+                    );
+                    for (var i = 0; i < data.length; i++) {
+                      var top = '<div class="col-forth">';
+                      var img =
+                        '<div class="project animate-box" style="background-image:url(' +
+                        data[i].img +
+                        ');">';
+                      var url =
+                        '<a href="' +
+                        data[i].url +
+                        '" target="_blank" class="desc">';
+                      var poster =
+                        '<span calss="poster"><strong>' +
+                        data[i].poster +
+                        "</strong></span><br />";
+                      var posted =
+                        '<span calss="posted"><strong>' +
+                        data[i].postdate +
+                        "</strong></span>";
+                      var title =
+                        '<h3 class="title">' + data[i].title + "</h3>";
+                      var keywords =
+                        '<span><strong>Keywords :</strong></span><textarea rows="4" cols="50" style="width:254px; height:40px" maxlength ="100" placeholder = "' +
+                        data[i].totalKeyword +
+                        '" readonly=""></textarea>';
+                      var end = "</a></div></div>";
+                      var abc =
+                        top +
+                        img +
+                        url +
+                        poster +
+                        posted +
+                        title +
+                        keywords +
+                        end;
+                      $(
+                        document.getElementsByClassName("project-content")
+                      ).append(abc);
                     }
-
-                </script>
-                <script>
-                    function getViedoData()
-                    {
-                        var keywordValue = document.getElementById("keywordText").value;
-                        console.log(keywordValue);
-                        if (keywordValue == "") {
-                            alert("不可有空格或空白");
-                        }
-                        else {
-                            $.ajax({
-                                url: "ytvideoAjax.aspx",//获取数据的URL
-                                data: { keyword: keywordValue },
-                                cache: false,
-                                type: "POST",//HTTP请求方法
-                                dataType: 'JSON',//获取数据执行方式
-                                success: function (data) {
-                                    console.log(data)
-                                    $(document.getElementsByClassName("project-content")).html("");
-                                    for (var i = 0; i < data.length; i++) {
-                                        var top = '<div class="col-forth">';
-                                        var img = '<div class="project animate-box" style="background-image:url(' + data[i].img + ');">';
-                                        var url = '<a href="' + data[i].url + '" target="_blank" class="desc">';
-                                        var poster = '<span calss="poster"><strong>' + data[i].poster + '</strong></span><br />';
-                                        var posted = '<span calss="posted"><strong>' + data[i].postdate + '</strong></span>';
-                                        var title = '<h3 class="title">' + data[i].title + '</h3>';
-                                        var keywords = '<span><strong>Keywords :</strong></span><textarea rows="4" cols="50" style="width:254px; height:40px" maxlength ="100" placeholder = "' + data[i].totalKeyword + '" readonly=""></textarea>';
-                                        var end = '</a></div></div>'
-                                        var abc = top + img + url + poster + posted + title + keywords + end;
-                                        $(document.getElementsByClassName("project-content")).append(abc);
-                                    }
-                                },
-                                error: function (err) {
-                                    alert('连接失败');
-                                }
-                            });
-                        }
-                    }
-                    function keywordVideocount()
-                    {
-                        var keywordValue = document.getElementById("keywordText").value;
-                        $.ajax({
-                            url: "ytvideoKeywordCountAjax.aspx",//获取数据的URL
-                            data: { keyword: keywordValue },
-                            cache: false,
-                            type: "POST",//HTTP请求方法
-                            //dataType: 'JSON',//获取数据执行方式
-                            success: function (data) {
-                            },
-                            error: function (err) {
-                                alert('连接失败');
-                            }
-                        });
-                    }
-                </script>
-                <!--<div class="container">
+                  },
+                  error: function (err) {
+                    alert("连接失败");
+                  },
+                });
+              }
+            }
+            function keywordVideocount() {
+              var keywordValue = document.getElementById("keywordText").value;
+              $.ajax({
+                url: "ytvideoKeywordCountAjax.aspx", //获取数据的URL
+                data: { keyword: keywordValue },
+                cache: false,
+                type: "POST", //HTTP请求方法
+                //dataType: 'JSON',//获取数据执行方式
+                success: function (data) {},
+                error: function (err) {
+                  alert("连接失败");
+                },
+              });
+            }
+          </script>
+          <!--<div class="container">
 					<div class="row animate-box">
 
 						<select style="margin-top: 30px; margin-bottom: 30px; margin-left: 120px ; width:200px; height:40px">
@@ -449,7 +548,7 @@
 					</div>
 				</div> -->
 
-                <!-- <div class="container">
+          <!-- <div class="container">
 					<div class="row animate-box">
 						<select style="margin-top: 30px;margin-bottom: 30px; margin-left: 120px ; width:200px; height:40px" onchange="window.open(this.options[this.selectedIndex].value)">
 							<optgroup selected="true" label="常用網頁"> 
@@ -463,33 +562,40 @@
 					</div>
 				</div> -->
 
-                <h2 style="margin-left:20px">  推薦影片</h2>
-                <div class="project-content">
+          <h2 style="margin-left: 20px">推薦影片</h2>
+          <div class="project-content">
+            <div id="video_container">
+              <div id="video_image_container">
+                <iframe
+                  width="300"
+                  height="250"
+                  src="https://www.youtube.com/embed/LGTbdjoEBVM"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                >
+                </iframe>
+              </div>
+              <!--影片縮圖 預計200*250px-->
+              <div id="Video_info_container">
+                <!--影片資訊-->
+                {% for vc_id in vc_id %}
+                <a id="Video_title">{{vc_id.Title}}</a>
+                <a id="Video_reference">影片超連結:{{vc_id.video_id}}</a>
 
-                    <div id="video_container">
-                        <div id="video_image_container">
-                          <iframe width="300" height="250" src="https://www.youtube.com/embed/LGTbdjoEBVM"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                          </iframe>
-                        </div>
-                        <!--影片縮圖 預計200*250px-->
-                        <div id="Video_info_container">
-                          <!--影片資訊-->
-                          <a id="Video_title">影片標題</a>
-                          <a id="Video_reference" href="https://www.youtube.com/" >影片超連結:</a>
-                          <a id="Video_keywords">影片關鍵字:範例一/範例二/範例三</a>
-                        </div>
-                    </div>
-
-                </div>
-                <!-- <div>
-                </div>  -->
+                <a id="Video_keywords"
+                  >影片關鍵字:{{vc_id.video_keywords.video_keywords}}</a
+                >
+                {% endfor %}
+              </div>
             </div>
+          </div>
+          <!-- <div>
+                </div>  -->
+        </div>
 
-
-            <!-- <div id="fh5co-started">
+        <!-- <div id="fh5co-started">
 				<div class="container">
 					<div class="row animate-box">
 						<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
@@ -507,10 +613,9 @@
 				</div>
 			</div> -->
 
-
-            <footer id="fh5co-footer" role="contentinfo">
-                <div class="container">
-                    <!-- <div class="row row-pb-md">
+        <footer id="fh5co-footer" role="contentinfo">
+          <div class="container">
+            <!-- <div class="row row-pb-md">
 						<div class="col-md-4 fh5co-widget">
 							<h3>A Little About Run.</h3>
 							<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
@@ -548,16 +653,29 @@
 						</div>
 					</div> -->
 
-                    <div class="row copyright">
-                        <div class="col-md-12 text-center">
-                            <p>
-                                <small class="block">&copy; 南台科技大學 資訊工程系 智慧型系統實驗室</small>
-                                <small class="block">&copy; 網站管理員: Shu-Chen Cheng (鄭淑真) 教授</small>
-                                <small class="block">&copy; 電子郵件：kittyc@stust.edu.tw</small>
-                                <small class="block">推薦學習網址 : <a href="http://ilearning.csie.stust.edu.tw/" target="_blank">智慧型系統實驗室ilab</a></small>
-                            </p>
+            <div class="row copyright">
+              <div class="col-md-12 text-center">
+                <p>
+                  <small class="block"
+                    >&copy; 南台科技大學 資訊工程系 智慧型系統實驗室</small
+                  >
+                  <small class="block"
+                    >&copy; 網站管理員: Shu-Chen Cheng (鄭淑真) 教授</small
+                  >
+                  <small class="block"
+                    >&copy; 電子郵件：kittyc@stust.edu.tw</small
+                  >
+                  <small class="block"
+                    >推薦學習網址 :
+                    <a
+                      href="http://ilearning.csie.stust.edu.tw/"
+                      target="_blank"
+                      >智慧型系統實驗室ilab</a
+                    ></small
+                  >
+                </p>
 
-                            <!-- <p>
+                <!-- <p>
 								<ul class="fh5co-social-icons">
 									<li><a href="#"><i class="icon-twitter"></i></a></li>
 									<li><a href="#"><i class="icon-facebook"></i></a></li>
@@ -565,146 +683,139 @@
 									<li><a href="#"><i class="icon-dribbble"></i></a></li>
 								</ul>
 							</p> -->
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+      <!-- #page end -->
 
-                        </div>
-                    </div>
+      <div class="gototop js-top">
+        <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+      </div>
 
-                </div>
+      <!-- jQuery -->
+      <script src="static/js/jquery.min.js"></script>
+      <!-- jQuery Easing -->
+      <script src="static/js/jquery.easing.1.3.js"></script>
+      <!-- Bootstrap -->
+      <script src="static/js/bootstrap.min.js"></script>
+      <!-- Waypoints -->
+      <script src="static/js/jquery.waypoints.min.js"></script>
+      <!-- Stellar Parallax -->
+      <script src="static/js/jquery.stellar.min.js"></script>
+      <!-- Carousel -->
+      <script src="static/js/owl.carousel.min.js"></script>
+      <!-- Main -->
+      <script src="static/js/main.js"></script>
 
-            </footer>
+      <!--  預覽影片  -->
+      <script>
+        var vid = document.getElementById("myVideo");
+        var timeout = 10;
+        var mode = 1;
 
-        </div>
-        <!-- #page end -->
-
-        <div class="gototop js-top">
-            <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
-        </div>
-
-
-        <!-- jQuery -->
-        <script src="js/jquery.min.js"></script>
-        <!-- jQuery Easing -->
-        <script src="js/jquery.easing.1.3.js"></script>
-        <!-- Bootstrap -->
-        <script src="js/bootstrap.min.js"></script>
-        <!-- Waypoints -->
-        <script src="js/jquery.waypoints.min.js"></script>
-        <!-- Stellar Parallax -->
-        <script src="js/jquery.stellar.min.js"></script>
-        <!-- Carousel -->
-        <script src="js/owl.carousel.min.js"></script>
-        <!-- Main -->
-        <script src="js/main.js"></script>
-
-
-        <!--  預覽影片  -->
-        <script>
-            var vid = document.getElementById("myVideo");
-            var timeout = 10;
-            var mode = 1;
-
-            function playVid() {                                       //  Preview
-                vid.play();
-                vid.addEventListener("timeupdate", function () {
-                    if (this.currentTime >= timeout) {
-                        pauseVid();
-                    }
-                });
+        function playVid() {
+          //  Preview
+          vid.play();
+          vid.addEventListener("timeupdate", function () {
+            if (this.currentTime >= timeout) {
+              pauseVid();
             }
+          });
+        }
 
-            function pauseVid() {                                     //  Segment preview
-                if (mode === 1) {
-                    timeout = 40;
-                    vid.src = "video/TEDVideoDome.mp4#t=30,40";
-                    console.log(mode);
-                    mode++;
-                    vid.load();
-                    vid.play();
-                } else if (mode === 2) {
-                    timeout = 70;
-                    vid.src = "video/TEDVideoDome.mp4#t=60,70";
-                    console.log(mode);
-                    mode++;
-                    vid.load();
-                    vid.play();
-                }
-                else if (mode === 3) {
-                    timeout = 100;
-                    vid.src = "video/TEDVideoDome.mp4#t=90,100";
-                    console.log(mode);
-                    mode++;
-                    vid.load();
-                    vid.play();
-                }
-                else if (mode === 4) {
-                    timeout = 130;
-                    vid.src = "video/TEDVideoDome.mp4#t=120,130";
-                    console.log(mode);
-                    mode++;
-                    vid.load();
-                    vid.play();
-                }
-                else if (mode === 5) {
-                    timeout = 160;
-                    vid.src = "video/TEDVideoDome.mp4#t=150,160";
-                    console.log(mode);
-                    mode++;
-                    vid.load();
-                    vid.play();
-                } else if (mode === 6) {
-                    timeout = 190;
-                    vid.src = "video/TEDVideoDome.mp4#t=180,190";
-                    console.log(mode);
-                    mode++;
-                    vid.load();
-                    vid.play();
-                } else if (mode === 7) {
-                    timeout = 220;
-                    vid.src = "video/TEDVideoDome.mp4#t=210,220";
-                    console.log(mode);
-                    mode++;
-                    vid.load();
-                    vid.play();
-                } else if (mode === 8) {
-                    timeout = 250;
-                    vid.src = "video/TEDVideoDome.mp4#t=240,250";
-                    console.log(mode);
-                    mode++;
-                    vid.load();
-                    vid.play();
-                } else if (mode === 9) {
-                    timeout = 280;
-                    vid.src = "video/TEDVideoDome.mp4#t=270,280";
-                    console.log(mode);
-                    mode++;
-                    vid.load();
-                    vid.play();
-                } else if (mode === 10) {
-                    timeout = 310;
-                    vid.src = "video/TEDVideoDome.mp4#t=300,310";
-                    console.log(mode);
-                    mode++;
-                    vid.load();
-                    vid.play();
-                } else {                                                     // 播放前300s後，隨即停止
-                    vid.pause();
-                }
+        function pauseVid() {
+          //  Segment preview
+          if (mode === 1) {
+            timeout = 40;
+            vid.src = "video/TEDVideoDome.mp4#t=30,40";
+            console.log(mode);
+            mode++;
+            vid.load();
+            vid.play();
+          } else if (mode === 2) {
+            timeout = 70;
+            vid.src = "video/TEDVideoDome.mp4#t=60,70";
+            console.log(mode);
+            mode++;
+            vid.load();
+            vid.play();
+          } else if (mode === 3) {
+            timeout = 100;
+            vid.src = "video/TEDVideoDome.mp4#t=90,100";
+            console.log(mode);
+            mode++;
+            vid.load();
+            vid.play();
+          } else if (mode === 4) {
+            timeout = 130;
+            vid.src = "video/TEDVideoDome.mp4#t=120,130";
+            console.log(mode);
+            mode++;
+            vid.load();
+            vid.play();
+          } else if (mode === 5) {
+            timeout = 160;
+            vid.src = "video/TEDVideoDome.mp4#t=150,160";
+            console.log(mode);
+            mode++;
+            vid.load();
+            vid.play();
+          } else if (mode === 6) {
+            timeout = 190;
+            vid.src = "video/TEDVideoDome.mp4#t=180,190";
+            console.log(mode);
+            mode++;
+            vid.load();
+            vid.play();
+          } else if (mode === 7) {
+            timeout = 220;
+            vid.src = "video/TEDVideoDome.mp4#t=210,220";
+            console.log(mode);
+            mode++;
+            vid.load();
+            vid.play();
+          } else if (mode === 8) {
+            timeout = 250;
+            vid.src = "video/TEDVideoDome.mp4#t=240,250";
+            console.log(mode);
+            mode++;
+            vid.load();
+            vid.play();
+          } else if (mode === 9) {
+            timeout = 280;
+            vid.src = "video/TEDVideoDome.mp4#t=270,280";
+            console.log(mode);
+            mode++;
+            vid.load();
+            vid.play();
+          } else if (mode === 10) {
+            timeout = 310;
+            vid.src = "video/TEDVideoDome.mp4#t=300,310";
+            console.log(mode);
+            mode++;
+            vid.load();
+            vid.play();
+          } else {
+            // 播放前300s後，隨即停止
+            vid.pause();
+          }
+        }
+
+        function bigImg(x) {
+          vid.play();
+          vid.addEventListener("timeupdate", function () {
+            if (this.currentTime >= timeout) {
+              pauseVid();
             }
+          });
+        }
 
-            function bigImg(x) {
-                vid.play();
-                vid.addEventListener("timeupdate", function () {
-                    if (this.currentTime >= timeout) {
-                        pauseVid();
-                    }
-                });
-            }
-
-            function normalImg(x) {
-                vid.pause();
-            }
-
-        </script>
+        function normalImg(x) {
+          vid.pause();
+        }
+      </script>
     </form>
-</body>
+  </body>
 </html>
