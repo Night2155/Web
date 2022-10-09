@@ -1474,11 +1474,15 @@ figure {
 }
 
 #Video_info_container {
+  margin: auto;
   display: flex;
   flex-direction: column;
   padding-left: 15px;
 }
 #abc {
+  display: flex;
+  padding-left: 15px;
+  flex-direction: column;
   justify-content: center;
 }
 #video_container {
