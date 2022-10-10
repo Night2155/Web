@@ -266,7 +266,7 @@
           id="fh5co-header"
           class="fh5co-cover fh5co-cover-sm"
           role="banner"
-          style="background-image: url(images/tech.jpg)"
+          style="background-image: url(/static/image/demo3.jpg)"
           data-stellar-background-ratio="0.5"
         >
           <div class="overlay"></div>
@@ -562,46 +562,48 @@
 					</div>
 				</div> -->
 
-          <h2 style="margin-left: 20px">推薦影片</h2>
+          <!-- <h2 style="margin-left: 500px">推薦影片</h2> -->
           <div class="project-content">
             <div id="video_container">
-              <!--
-              <div id="video_image_container">
-                <iframe
-                  width="300"
-                  height="250"
-                  src="https://www.youtube.com/embed/LGTbdjoEBVM"
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                >
-                </iframe>
-              </div>
-            -->
               <!--影片縮圖 預計200*250px-->
               <div id="Video_info_container">
                 <!--影片資訊-->
                 {% for vc_id in vc_id %}
-                <div id="abc">
-                  <p>
-                    <a id="Video_title">{{vc_id.Title}}</a>
-                  </p>
-                  <p>
-                    <a
-                      id="Video_reference"
-                      href="https://www.youtube.com/watch?v={{vc_id.video_id}}"
-                      target="_blank"
-                      >影片超連結</a
+                <div style="display: flex">
+                  <div id="video_image_container">
+                    <!-- <iframe
+                      width="500px"
+                      height="250px"
+                      src="https://www.youtube.com/embed/LGTbdjoEBVM"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
                     >
-                  </p>
-                  <p>
-                    <a id="Video_keywords"
+                    </iframe> -->
+                    <img
+                      src="/static/image/demo4.jpg"
+                      style="width: 500px; height: 250px"
+                    />
+                  </div>
+                  <div id="abc">
+                    <a id="Video_title" style="width: 500px">{{vc_id.Title}}</a>
+                    <a id="Video_keywords" style="width: 500px"
                       >影片關鍵字:{{vc_id.video_keywords.video_keywords}}</a
                     >
-                  </p>
-                  <br />
+                    <p>
+                      <a
+                        id="Video_reference"
+                        href="https://www.youtube.com/watch?v={{vc_id.video_id}}"
+                        target="_blank"
+                        style="width: 500px"
+                        >影片超連結</a
+                      >
+                    </p>
+                    <br />
+                  </div>
                 </div>
+                <br />
                 {% endfor %}
               </div>
             </div>
