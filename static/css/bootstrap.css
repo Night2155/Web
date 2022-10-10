@@ -888,9 +888,9 @@ pre code {
   }
 }
 @media (min-width: 1200px) {
-  .container {
+  /* .container {
     width: 1170px;
-  }
+  } */
 }
 
 .container-fluid {
@@ -3399,6 +3399,7 @@ tbody.collapse.in {
 }
 
 .input-group-btn {
+  padding-left: 5px;
   position: relative;
   font-size: 0;
   white-space: nowrap;
