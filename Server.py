@@ -21,6 +21,7 @@ class V_keywords(db.Model):
     uid = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(max))
     video_keywords = db.Column(db.String(max))
+    # 關聯 id
     db_keywords_id = db.relationship("VC_id", backref="video_keywords")
 
     def __init__(self, id, title, video_keywords):
@@ -53,8 +54,15 @@ class VC_id(db.Model):
 
 @app.route("/", methods=['GET', 'POST'])
 def homepage():
-
+    # 載入所有資料庫的影片資訊
     return render_template("DemoHomepage.html", vc_id=VC_id.query.all(), v_keywords=V_keywords.query.all())
+
+
+@app.route("/search=", methods=['GET', 'POST'])
+def search():
+    # 搜尋結果以更新放置影片資訊的欄位呈現(篩選出有關鍵字的影片)
+    # if 關鍵字 == 進行式 then 影片資訊的欄位只會出現關鍵字有進行式的影片
+    return 0
 
 
 if __name__ == "__main__":

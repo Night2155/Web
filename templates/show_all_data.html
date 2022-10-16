@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>video_id</th>
+          <th>video_keywords</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for vc_id in vc_id %}
+        <tr>
+          <td>{{ vc_id.Title }}</td>
+          <td>{{ vc_id.video_id }}</td>
+          <td>{{vc_id.video_keywords.video_keywords}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
