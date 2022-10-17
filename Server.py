@@ -72,6 +72,8 @@ def search(keyword):
     bindingwords = "'%"+keyword+"%'"  # 字串串接
     query = '''
     SELECT video_and_channel_id.Title, video_and_channel_id.video_id, video_keywords.video_keywords FROM video_and_channel_id INNER JOIN video_keywords ON video_and_channel_id.id = video_keywords.uid WHERE video_and_channel_id.Title LIKE 
+    '''+bindingwords+'''
+    OR video_keywords.video_keywords LIKE
     '''+bindingwords
     result3 = db.engine.execute(query)
     # result = db.engine.execute(

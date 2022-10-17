@@ -603,11 +603,17 @@
                     </iframe> -->
                   </div>
                   <div id="video_data_container">
-                    <a id="Video_title" style="width: 500px">{{vc_id.Title}}</a>
-                    <a id="Video_keywords" style="width: 500px"
-                      >影片關鍵字:{{vc_id.video_keywords}}</a
+                    <a
+                      id="Video_title"
+                      style="width: 500px"
+                      href="https://www.youtube.com/watch?v={{vc_id.video_id}}"
+                      target="_blank"
+                      >{{vc_id.Title}}</a
                     >
-                    <p>
+                    <a id="Video_keywords" style="width: 500px"
+                      >影片關鍵字: {{ vc_id.video_keywords}}</a
+                    >
+                    <!-- <p>
                       <a
                         id="Video_reference"
                         href="https://www.youtube.com/watch?v={{vc_id.video_id}}"
@@ -615,7 +621,7 @@
                         style="width: 500px"
                         >影片超連結</a
                       >
-                    </p>
+                    </p> -->
                     <br />
                   </div>
                 </div>

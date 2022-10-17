@@ -63,16 +63,25 @@ def search(keyword):
     # 搜尋結果以更新放置影片資訊的欄位呈現(篩選出有關鍵字的影片)
     # if 關鍵字 == 進行式 then 影片資訊的欄位只會出現關鍵字有進行式的影片
     # keywords 網站傳來的關鍵字
-    bindingwords = "'%"+keyword+"%'"  # 字串串接
-    query = '''
-    SELECT video_and_channel_id.Title, video_and_channel_id.video_id, video_keywords.video_keywords FROM video_and_channel_id INNER JOIN video_keywords ON video_and_channel_id.id = video_keywords.uid WHERE video_and_channel_id.Title LIKE 
-    '''+bindingwords
-    result3 = db.engine.execute(query)
+    if(len(keyword) > 0):
+        bindingwords = "'%"+keyword+"%'"  # 字串串接
+        query = '''
+        SELECT video_and_channel_id.Title, video_and_channel_id.video_id, video_keywords.video_keywords FROM video_and_channel_id INNER JOIN video_keywords ON video_and_channel_id.id = video_keywords.uid WHERE video_and_channel_id.Title LIKE 
+        '''+bindingwords+'''
+        OR video_keywords.video_keywords LIKE
+        '''+bindingwords
+    elif(len(keyword) == 0):
+        query = '''
+        SELECT video_and_channel_id.Title, video_and_channel_id.video_id, video_keywords.video_keywords
+        FROM   video_and_channel_id INNER JOIN
+                video_keywords ON video_and_channel_id.id = video_keywords.uid
+        '''
+    result = db.engine.execute(query)
     # result = db.engine.execute(
     #     "SELECT * from video_and_channel_id WHERE Title LIKE '%規則%'")
     # result2 = db.engine.execute(
     #     "SELECT * from video_keywords WHERE title LIKE '%規則%'")
-    return render_template('show_data.html', vc_id=result3)
+    return render_template('show_data.html', vc_id=result)
 
 
 if __name__ == "__main__":
