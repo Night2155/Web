@@ -11,8 +11,8 @@ def read_all_file(directory: str):
             file_directory = os.path.join(directory, filename)
             filereader = open(file_directory, "r", encoding="UTF-8")
             csvname = Path(filename).stem
-            csvwriter = open(directory+csvname+"_csv.txt",
-                             "w", encoding="UTF-8")
+            csvwriter = open(directory+csvname+".csv",
+                             "w", encoding="UTF-8-sig")
             csvwriter.write("Video_Title,VideoID,ChannelID\n")
 
             for row in filereader:
