@@ -12,11 +12,11 @@
       </thead>
 
       <tbody>
-        {% for vc_id in vc_id %}
+        {% for Grammer in grammer %}
         <tr>
-          <td>{{ vc_id.Title }}</td>
-          <td>{{ vc_id.video_id }}</td>
-          <td>{{vc_id.video_keywords}}</td>
+          <td>{{ Grammer.Grammer_title }}</td>
+          <td>{{ Grammer.Grammer_video_id }}</td>
+          <td>{{ Grammer.Grammer_keywords}}</td>
         </tr>
         {% endfor %}
       </tbody>

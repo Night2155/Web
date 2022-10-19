@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head></head>
+  <head>
+    <script src="static/js/search_bar.js"></script>
+  </head>
   <body>
+    <form method="post" action="/search">
+      <input name="search_bar" type="text" style="width: 500px" />
+      <button type="submit">Submit</button>
+    </form>
+
     <table>
       <thead>
         <tr>
@@ -12,11 +19,11 @@
       </thead>
 
       <tbody>
-        {% for vc_id in vc_id %}
+        {% for Grammer in grammer %}
         <tr>
-          <td>{{ vc_id.Title }}</td>
-          <td>{{ vc_id.video_id }}</td>
-          <td>{{vc_id.video_keywords.video_keywords}}</td>
+          <td class="video_title">{{ Grammer.Grammer_title }}</td>
+          <td class="video_id">{{ Grammer.Grammer_video_id }}</td>
+          <td class="keywords">{{ Grammer.Grammer_keywords }}</td>
         </tr>
         {% endfor %}
       </tbody>
