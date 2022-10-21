@@ -2,14 +2,14 @@
     position: fixed;
     bottom: 0;
     right: 20px;
-    width: 300px;
-    height: 400px;
+    width: 400px;
+    height: 600px;
     background-color: #fff;
     font-family: 'Lato', sans-serif;
 
     -webkit-transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
     transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
-z-index: 999;
+    z-index: 999;
     display: -webkit-flex;
     display: flex;
 
@@ -18,7 +18,7 @@ z-index: 999;
 }
 
 .chatbox--tray {
-    bottom: -350px;
+    bottom: -550px;
 }
 
 .chatbox--closed {
@@ -37,7 +37,7 @@ z-index: 999;
 .chatbox__title {
     min-height: 50px;
     padding-right: 10px;
-    background-color: #1f2836cc;
+    background-color: #210e66cc;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     cursor: pointer;
@@ -230,26 +230,30 @@ z-index: 999;
     margin-left: 3px;
     margin-right: 3px;
 }
-.chatbox_timing ul li a{display:block;color:#747474}
-.ul_msg {
 
-    
+.chatbox_timing ul li a{
+    display:block;
+    color:#747474
+}
+
+.ul_msg {
     padding: 10px !important;
 
 }
 .chatbox__body__message--right .ul_section_full{
+    color: #000;
 	margin-right: 15px;
     padding-right: 30px;
     text-align: right;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 18px;
     background-color: #fff;
     -webkit-box-shadow: 1px 1px rgba(100, 100, 100, 0.1);
     box-shadow: 1px 1px rgba(100, 100, 100, 0.1);margin-bottom: 15px;
 padding-bottom: 5px;padding-top:15px;
 }
 .chatbox__body__message--left .ul_section_full {
-
+    color: #000;
     margin-left: 15px;
     padding-left: 15px;
     text-align: left;
@@ -257,16 +261,32 @@ padding-bottom: 5px;padding-top:15px;
     padding-bottom: 5px;
     margin-bottom: 15px;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 18px;
     background-color: #fff;
     -webkit-box-shadow: 1px 1px rgba(100, 100, 100, 0.1);
     box-shadow: 1px 1px rgba(100, 100, 100, 0.1);
 
 }
-.ul_msg{padding:0;margin:0px}
-.ul_msg li{list-style:none;display:block}
-.ul_msg2{padding:0;margin:0px;text-align: right;}
-.ul_msg2 li{list-style:none;display:inline-block;margin-right: 15px;}
+.ul_msg{
+    padding: 0px;
+    margin:0px
+}
+
+.ul_msg li{
+    margin-bottom: 10px;
+    list-style:none;
+    display:block
+}
+
+.ul_msg2{
+    padding:0;
+    margin:0px;
+    text-align: right;
+}
+.ul_msg2 li{
+    list-style:none;
+    display:inline-block;
+    margin-right: 15px;}
 .chatbox__body__message--right .chatbox_timing  {
     position: absolute;
     left: 10px;
