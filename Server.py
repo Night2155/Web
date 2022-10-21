@@ -15,43 +15,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://DESKTOP-GPKL4Q4\SQLEXPRESS/Video_data?driver=SQL+Server'
 db = SQLAlchemy(app)
 
-
-class V_keywords(db.Model):
-    __tablename__ = 'video_keywords'
-    uid = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(max))
-    video_keywords = db.Column(db.String(max))
-    # 關聯 id
-    db_keywords_id = db.relationship("VC_id", backref="video_keywords")
-
-    def __init__(self, id, title, video_keywords):
-        self.id = id
-        self.title = title
-        self.video_keywords = video_keywords
-
-
-class VC_id(db.Model):
-    __tablename__ = 'video_and_channel_id'
-    id = db.Column(db.Integer, db.ForeignKey(
-        'video_keywords.uid'), primary_key=True)
-    Title = db.Column(db.String(max))
-    video_id = db.Column(db.String(max))
-    channel_id = db.Column(db.String(max))
-
-    def __init__(self, Title, video_id, channel_id):
-        self.Title = Title
-        self.video_id = video_id
-        self.channel_id = channel_id
-
-
-# Session = sessionmaker()
-# Session.configure(bind=db)
-# session = Session()
-# query = db.session.query(VC_id).all()
-#     for i in query:
-#         print(i.video_id)
-
-
 @app.route("/", methods=['GET', 'POST'])
 def homepage():
     # 載入所有資料庫的影片資訊
