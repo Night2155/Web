@@ -20,7 +20,6 @@
 
     <!-- 
 		//////////////////////////////////////////////////////
-
 		FREE HTML5 TEMPLATE 
 		DESIGNED & DEVELOPED by FreeHTML5.co
 			
@@ -28,7 +27,6 @@
 		Email: 			info@freehtml5.co
 		Twitter: 		http://twitter.com/fh5co
 		Facebook: 		https://www.facebook.com/fh5co
-
 		//////////////////////////////////////////////////////
 		-->
 
@@ -175,7 +173,6 @@
       </style>
 
       <!-- <div class="side_menu">
-
              <div class="burger_box">
 				<div class="menu-icon-container"> 
 					<a href="#" class="menu-icon js-menu_toggle closed"> 
@@ -188,7 +185,6 @@
 				</div>
 			</div> 
 			
-
              <div class="container">
 				    <h2 class="menu_title"></h2>   
 					<ul class="list_load">
@@ -199,7 +195,6 @@
 					</ul>
 			</div> 
 			
-
         </div>-->
 
       <div class="fh5co-loader"></div>
@@ -255,7 +250,6 @@
                       <!-- <a href="all_graph_model.aspx">GRAPH</a> -->
                       <!-- <ul class="dropdown">
                                             <li><a href="bar_graph.aspx">Bar</a></li>
-
                                             <li><a href="scatter_graph.aspx">Scatter</a></li>
                                         </ul> -->
                     </li>
@@ -312,12 +306,6 @@
               class="row animate-box text-center fh5co-heading"
               style="margin-bottom: 20px"
             >
-              <!--<form style="width: 800;"  method="POST" enctype="application/x-www-form-urlencoded" name="form1" onclick="getViedoData()">
-							<input rows="4" cols="50" style="margin-top: 30px; width:600px; height:40px" maxlength ="100" wrap="OFF" name="customer" placeholder = " 請輸入關鍵字(Please Input Keywords)"></textarea>
-							<input type="submit" class="btn btn-lg btn-danger" style="margin-left:10px; width: 130px" value="Search" name="submit">
-							<button type="button" class="btn btn-lg btn-danger" style="margin-left:5px; " data-toggle="popover" data-trigger="focus" data-placement="top" title="輸入格式如下 :" data-content="資訊/科技/...">輸入查詢指南</button>
-
-						</form>-->
               <input
                 rows="4"
                 cols="50"
@@ -332,9 +320,9 @@
                 type="button"
                 class="btn btn-lg btn-danger"
                 style="margin-left: 10px; margin-top: 20px; width: 130px"
-                value="Search"
                 name="submit"
-                onclick="getViedoData()"
+                id="submit"
+                onclick="user_search()"
               >
                 Search
               </button>
@@ -353,6 +341,81 @@
             </div>
           </div>
           <script>
+            // 搜尋欄及按鈕的script
+            // 使用 jQuery(javascript 函式庫)
+            //      AJAX(jQuery下的一個function、主要是與伺服器互動)
+            var input = document.getElementById("keywordText");
+            input.addEventListener("keypress", function (event) {
+              if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("submit").click();
+              }
+            });
+            function user_search() {
+              $(function () {
+                var searchtext = $("#keywordText").val();
+                $.ajax({
+                  type: "POST",
+                  url: "/search",
+                  data: {
+                    searchtext: searchtext,
+                  },
+                  success: function (data) {
+                    if (searchtext == "") {
+                      alert("請輸入關鍵字");
+                    }
+                    data = JSON.parse(data);
+                    console.log(data[0].video_id);
+                    // console.log(obj[0].video_id);
+                    // console.log(obj[0].keywords);
+                    $(document.getElementsByClassName("project-content")).html(
+                      ""
+                    );
+                    for (var i = 0; i < data.length; i++) {
+                      var top = '<div id="video_container">';
+                      var container = '<div style="display: flex">';
+                      var video_image_container =
+                        '<div id="video_image_container">';
+                      var image =
+                        '<img src="https://img.youtube.com/vi/' +
+                        data[i].video_id +
+                        '/maxresdefault.jpg" style="width: 500px; height: 250px /> </div>';
+                      var video_data_container =
+                        '<div id="video_data_container">' +
+                        '<a id="Video_title" style="width: 500px"' +
+                        ' href="https://www.youtube.com/watch?v=' +
+                        data[i].video_id +
+                        '" target="_blank">' +
+                        data[i].Title +
+                        "</a>";
+                      var video_keywords =
+                        '<a id="Video_keywords" style="width: 500px">影片關鍵字: ' +
+                        data[i].keywords +
+                        "</a>";
+                      var end = "<br/></div></div><br/></div>";
+                      var fullTags =
+                        top +
+                        container +
+                        video_image_container +
+                        image +
+                        video_data_container +
+                        video_keywords +
+                        end;
+                      $(
+                        document.getElementsByClassName("project-content")
+                      ).append(fullTags);
+                    }
+                  },
+                  error: function (error) {
+                    alert("error");
+                  },
+                });
+              });
+
+              // alert(search_text);
+            }
+          </script>
+          <!-- <script>
             function videoOnload() {
               $.ajax({
                 url: "ytvideoOnload.aspx", //获取数据的URL
@@ -487,22 +550,19 @@
                 },
               });
             }
-          </script>
+          </script> -->
           <!--<div class="container">
 					<div class="row animate-box">
-
 						<select style="margin-top: 30px; margin-bottom: 30px; margin-left: 120px ; width:200px; height:40px">
 							<option value="Topic"" disabled selected>主題</option>
 							<option value="TED">TED</option>
 							<option value="Calculus">Calculus</option>
 						</select>
-
 						<select style="margin-top: 30px;margin-bottom: 30px; margin-left: 30px ; width:200px; height:40px" onchange="window.open(this.options[this.selectedIndex].value)">
 							<option value="Language" disabled selected>語言</option>
 							<option value="Chinese"">中文</option>
 							<option value="English">英文</option>
 						</select>
-
 						<select style="margin-top: 30px;margin-bottom: 30px; margin-left: 30px ; width:200px; height:40px" onchange="window.open(this.options[this.selectedIndex].value)">
 							<option value="Time" disabled selected>持續時間</option>
 							<option>0 ~ 6 分鐘</option>
@@ -510,7 +570,6 @@
 							<option>12 ~ 18 分鐘</option>
 							<option>18 分鐘以上</option>
 						</select>
-
 						<select style="margin-top: 30px;margin-bottom: 30px; margin-left: 30px ; width:200px; height:40px" onchange="window.open(this.options[this.selectedIndex].value)">
 							<option value="Date" disabled selected>發佈日期</option>
 							<optgroup selected="true" label="年">
@@ -562,7 +621,6 @@
 								<option>29</option>
 								<option>30</option>
 						</select>
-
 					</div>
 				</div> -->
 
@@ -586,41 +644,26 @@
               <!--影片縮圖 預計200*250px-->
               <div id="Video_info_container">
                 <!--影片資訊-->
-                {% for vc_id in vc_id %}
+                {% for result in result %}
                 <div style="display: flex">
                   <div id="video_image_container">
                     <!--youtube api 縮圖引用 https://stackoverflow.com/questions/2068344/how-do-i-get-a-youtube-video-thumbnail-from-the-youtube-api-->
                     <img
-                      src="https://img.youtube.com/vi/{{vc_id.video_id}}/maxresdefault.jpg"
+                      src="https://img.youtube.com/vi/{{result.Grammer_video_id}}/maxresdefault.jpg"
                       style="width: 500px; height: 250px"
                     />
-                    <!-- <iframe
-                      width="500px"
-                      height="250px"
-                      src="https://www.youtube.com/embed/{{vc_id.video_id}}?controls=1"
-                    >
-                    </iframe> -->
                   </div>
                   <div id="video_data_container">
                     <a
                       id="Video_title"
                       style="width: 500px"
-                      href="https://www.youtube.com/watch?v={{vc_id.video_id}}"
+                      href="https://www.youtube.com/watch?v={{result.Grammer_video_id}}"
                       target="_blank"
-                      >{{vc_id.Title}}</a
+                      >{{result.Grammer_title}}</a
                     >
                     <a id="Video_keywords" style="width: 500px"
-                      >影片關鍵字: {{ vc_id.video_keywords}}</a
+                      >影片關鍵字: {{ result.Grammer_keywords}}</a
                     >
-                    <!-- <p>
-                      <a
-                        id="Video_reference"
-                        href="https://www.youtube.com/watch?v={{vc_id.video_id}}"
-                        target="_blank"
-                        style="width: 500px"
-                        >影片超連結</a
-                      >
-                    </p> -->
                     <br />
                   </div>
                 </div>
@@ -641,13 +684,11 @@
 							<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
 						</div>
 					</div>
-
 					<div class="row animate-box">
 						<div class="col-md-8 col-md-offset-2 text-center">
 							<p><a href="#" class="btn btn-default btn-lg">Get in Touch</a></p>
 						</div>
 					</div>
-
 				</div>
 			</div> -->
 
@@ -659,7 +700,6 @@
 							<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
 							<p><a class="btn btn-primary btn-outline with-arrow" href="#">Learn More <i class="icon-arrow-right"></i></a></p>
 						</div>
-
 						<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
 							<ul class="fh5co-footer-links">
 								<li><a href="#">About</a></li>
@@ -669,7 +709,6 @@
 								<li><a href="#">Meetups</a></li>
 							</ul>
 						</div>
-
 						<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
 							<ul class="fh5co-footer-links">
 								<li><a href="#">Shop</a></li>
@@ -679,7 +718,6 @@
 								<li><a href="#">Held Desk</a></li>
 							</ul>
 						</div>
-
 						<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
 							<ul class="fh5co-footer-links">
 								<li><a href="#">Find Designers</a></li>
@@ -885,7 +923,9 @@
             />
 
             <span class="input-group-btn">
-              <button class="btn bt_bg btn-sm btn-danger" id="btn-chat">發送</button>
+              <button class="btn bt_bg btn-sm btn-danger" id="btn-chat">
+                發送
+              </button>
             </span>
           </div>
         </div>
