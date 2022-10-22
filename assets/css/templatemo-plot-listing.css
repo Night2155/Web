@@ -1622,7 +1622,7 @@ Listing Page
   color: #fff;
   font-size: 15px;
   border-radius: 7px;
-  background-color: #8d99af;
+  background-color: #009999;
   margin-bottom: 30px;
   height: 126px;
   text-align: left;
@@ -1635,7 +1635,7 @@ Listing Page
 
 .listing-page .naccs .menu div.active,
 .listing-page .naccs .menu div.active .thumb {
-  background-color: #2b2d42;
+  background-color: #086969;
 }
 
 .listing-page ul.nacc {
