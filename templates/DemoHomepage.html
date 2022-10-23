@@ -365,21 +365,28 @@
                       alert("請輸入關鍵字");
                     }
                     data = JSON.parse(data);
-                    console.log(data[0].video_id);
+                    //console.log(data[0].Title);
                     // console.log(obj[0].video_id);
                     // console.log(obj[0].keywords);
                     $(document.getElementsByClassName("project-content")).html(
                       ""
                     );
                     for (var i = 0; i < data.length; i++) {
-                      var top = '<div id="video_container">';
+                      // console.log(data[i].Title);
+                      // console.log(data[i].video_id);
+                      // console.log(data[i].keywords);
+                      var top =
+                        '<div id="video_container" style="display: flex;">';
+
+                      var Video_info_container =
+                        '<div id="Video_info_container">';
                       var container = '<div style="display: flex">';
                       var video_image_container =
                         '<div id="video_image_container">';
                       var image =
                         '<img src="https://img.youtube.com/vi/' +
                         data[i].video_id +
-                        '/maxresdefault.jpg" style="width: 500px; height: 250px /> </div>';
+                        '/maxresdefault.jpg" style="width: 500px; height: 250px" /></div>';
                       var video_data_container =
                         '<div id="video_data_container">' +
                         '<a id="Video_title" style="width: 500px"' +
@@ -391,10 +398,11 @@
                       var video_keywords =
                         '<a id="Video_keywords" style="width: 500px">影片關鍵字: ' +
                         data[i].keywords +
-                        "</a>";
-                      var end = "<br/></div></div><br/></div>";
+                        "</a><br/>";
+                      var end = "</div></div><br/></div></div>";
                       var fullTags =
                         top +
+                        Video_info_container +
                         container +
                         video_image_container +
                         image +
@@ -411,8 +419,6 @@
                   },
                 });
               });
-
-              // alert(search_text);
             }
           </script>
           <!-- <script>
