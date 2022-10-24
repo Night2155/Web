@@ -1,15 +1,7 @@
 from unittest import result
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
-import sqlalchemy
-from sqlalchemy.dialects.mssql import \
-    BIGINT, BINARY, BIT, CHAR, DATE, DATETIME, DATETIME2, \
-    DATETIMEOFFSET, DECIMAL, FLOAT, IMAGE, INTEGER, MONEY, \
-    NCHAR, NTEXT, NUMERIC, NVARCHAR, REAL, SMALLDATETIME, \
-    SMALLINT, SMALLMONEY, SQL_VARIANT, TEXT, TIME, \
-    TIMESTAMP, TINYINT, UNIQUEIDENTIFIER, VARBINARY, VARCHAR
-from sqlalchemy import Table, MetaData, Column, Integer, String, ForeignKey, INT, create_engine
-from sqlalchemy.orm import mapper, sessionmaker
+
 import pandas as pd
 import json
 app = Flask(__name__)
@@ -30,9 +22,9 @@ def homepage():
     # result = db.engine.execute(query)
     # return render_template('DemoHomepage.html', vc_id=result)
     grammer_query = '''
-    SELECT  Grammer_id_table.Grammer_title, Grammer_id_table.Grammer_video_id,Grammer_keywords_table.Grammer_keywords                  
-    FROM    Grammer_id_table INNER JOIN
-            Grammer_keywords_table ON Grammer_id_table.Grammer_id = Grammer_keywords_table.Grammer_uid
+    SELECT      Grammer_id.Video_Title, Grammer_id.VideoID, Grammer_keywords_table.Grammer_keywords
+    FROM        Grammer_id INNER JOIN
+                Grammer_keywords_table ON Grammer_id.Grammer_id = Grammer_keywords_table.Grammer_uid
     '''
     grammer_result = db.engine.execute(grammer_query)
     return render_template('DemoHomepage.html', result=grammer_result)
@@ -51,15 +43,15 @@ def search():
     if(len(keyword) > 0):
         bindingwords = "'%"+keyword+"%'"  # 字串串接
         query = '''
-        SELECT Grammer_id_table.Grammer_title, Grammer_id_table.Grammer_video_id,Grammer_keywords_table.Grammer_keywords
-        FROM Grammer_id_table INNER JOIN 
-             Grammer_keywords_table ON Grammer_id_table.Grammer_id = Grammer_keywords_table.Grammer_uid
-             WHERE Grammer_id_table.Grammer_title LIKE '''+bindingwords+''' OR Grammer_keywords_table.Grammer_keywords LIKE '''+bindingwords
+        SELECT      Grammer_id.Video_Title, Grammer_id.VideoID, Grammer_keywords_table.Grammer_keywords
+        FROM        Grammer_id INNER JOIN
+                    Grammer_keywords_table ON Grammer_id.Grammer_id = Grammer_keywords_table.Grammer_uid
+        WHERE Grammer_id.Video_Title LIKE '''+bindingwords+''' OR Grammer_keywords_table.Grammer_keywords LIKE '''+bindingwords
     elif(len(keyword) == 0):
         query = '''
-        SELECT  Grammer_id_table.Grammer_title, Grammer_id_table.Grammer_video_id,Grammer_keywords_table.Grammer_keywords                  
-        FROM    Grammer_id_table INNER JOIN
-                Grammer_keywords_table ON Grammer_id_table.Grammer_id = Grammer_keywords_table.Grammer_uid
+        SELECT      Grammer_id.Video_Title, Grammer_id.VideoID, Grammer_keywords_table.Grammer_keywords
+        FROM        Grammer_id INNER JOIN
+                    Grammer_keywords_table ON Grammer_id.Grammer_id = Grammer_keywords_table.Grammer_uid
         '''
 
     result3 = db.engine.execute(query).fetchall()

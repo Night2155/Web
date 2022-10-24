@@ -222,7 +222,7 @@
               <div class="row">
                 <div class="col-xs-2">
                   <div id="fh5co-logo">
-                    <a href="template/ChatBubble.html">英文教學影片小助手</a>
+                    <a href="/">英文教學影片小助手</a>
                   </div>
                   <!-- <div id="fh5co-logo"><a href="#">Video<span>.</span></a></div> -->
                 </div>
@@ -421,142 +421,7 @@
               });
             }
           </script>
-          <!-- <script>
-            function videoOnload() {
-              $.ajax({
-                url: "ytvideoOnload.aspx", //获取数据的URL
-                data: { onload: "onload" },
-                cache: false,
-                type: "POST", //HTTP请求方法
-                dataType: "JSON", //获取数据执行方式
-                success: function (data) {
-                  $(document.getElementsByClassName("project-content")).html(
-                    ""
-                  );
-                  for (var i = 0; i < data.length; i++) {
-                    var top = '<div class="col-forth">';
-                    var img =
-                      '<div class="project animate-box" style="background-image:url(' +
-                      data[i].img +
-                      ');">';
-                    var url =
-                      '<a href="' +
-                      data[i].url +
-                      '" target="_blank" class="desc">';
-                    var poster =
-                      '<span calss="poster"><strong>' +
-                      data[i].poster +
-                      "</strong></span><br />";
 
-                    var postdate = data[i].postdate.split("T")[0];
-                    var posted =
-                      '<span calss="posted"><strong>' +
-                      postdate +
-                      "</strong></span>";
-                    var title = '<h3 class="title">' + data[i].title + "</h3>";
-                    var keywords =
-                      '<span><strong>Keywords :</strong></span><textarea rows="4" cols="50" style="width:254px; height:40px" maxlength ="100" placeholder = "' +
-                      data[i].totalKeyword +
-                      '" readonly=""></textarea>';
-                    var end = "</a></div></div>";
-                    var abc =
-                      top +
-                      img +
-                      url +
-                      poster +
-                      posted +
-                      title +
-                      keywords +
-                      end;
-                    $(
-                      document.getElementsByClassName("project-content")
-                    ).append(abc);
-                  }
-                },
-                error: function (err) {
-                  alert("连接失败");
-                },
-              });
-            }
-          </script>
-          <script>
-            function getViedoData() {
-              var keywordValue = document.getElementById("keywordText").value;
-              console.log(keywordValue);
-              if (keywordValue == "") {
-                alert("不可有空格或空白");
-              } else {
-                $.ajax({
-                  url: "ytvideoAjax.aspx", //获取数据的URL
-                  data: { keyword: keywordValue },
-                  cache: false,
-                  type: "POST", //HTTP请求方法
-                  dataType: "JSON", //获取数据执行方式
-                  success: function (data) {
-                    console.log(data);
-                    $(document.getElementsByClassName("project-content")).html(
-                      ""
-                    );
-                    for (var i = 0; i < data.length; i++) {
-                      var top = '<div class="col-forth">';
-                      var img =
-                        '<div class="project animate-box" style="background-image:url(' +
-                        data[i].img +
-                        ');">';
-                      var url =
-                        '<a href="' +
-                        data[i].url +
-                        '" target="_blank" class="desc">';
-                      var poster =
-                        '<span calss="poster"><strong>' +
-                        data[i].poster +
-                        "</strong></span><br />";
-                      var posted =
-                        '<span calss="posted"><strong>' +
-                        data[i].postdate +
-                        "</strong></span>";
-                      var title =
-                        '<h3 class="title">' + data[i].title + "</h3>";
-                      var keywords =
-                        '<span><strong>Keywords :</strong></span><textarea rows="4" cols="50" style="width:254px; height:40px" maxlength ="100" placeholder = "' +
-                        data[i].totalKeyword +
-                        '" readonly=""></textarea>';
-                      var end = "</a></div></div>";
-                      var abc =
-                        top +
-                        img +
-                        url +
-                        poster +
-                        posted +
-                        title +
-                        keywords +
-                        end;
-                      $(
-                        document.getElementsByClassName("project-content")
-                      ).append(abc);
-                    }
-                  },
-                  error: function (err) {
-                    alert("连接失败");
-                  },
-                });
-              }
-            }
-            function keywordVideocount() {
-              var keywordValue = document.getElementById("keywordText").value;
-              $.ajax({
-                url: "ytvideoKeywordCountAjax.aspx", //获取数据的URL
-                data: { keyword: keywordValue },
-                cache: false,
-                type: "POST", //HTTP请求方法
-                //dataType: 'JSON',//获取数据执行方式
-                success: function (data) {},
-                error: function (err) {
-                  alert("连接失败");
-                },
-              });
-            }
-          </script> -->
           <!--<div class="container">
 					<div class="row animate-box">
 						<select style="margin-top: 30px; margin-bottom: 30px; margin-left: 120px ; width:200px; height:40px">
@@ -655,7 +520,7 @@
                   <div id="video_image_container">
                     <!--youtube api 縮圖引用 https://stackoverflow.com/questions/2068344/how-do-i-get-a-youtube-video-thumbnail-from-the-youtube-api-->
                     <img
-                      src="https://img.youtube.com/vi/{{result.Grammer_video_id}}/maxresdefault.jpg"
+                      src="https://img.youtube.com/vi/{{result.VideoID}}/maxresdefault.jpg"
                       style="width: 500px; height: 250px"
                     />
                   </div>
@@ -663,9 +528,9 @@
                     <a
                       id="Video_title"
                       style="width: 500px"
-                      href="https://www.youtube.com/watch?v={{result.Grammer_video_id}}"
+                      href="https://www.youtube.com/watch?v={{result.VideoID}}"
                       target="_blank"
-                      >{{result.Grammer_title}}</a
+                      >{{result.Video_Title}}</a
                     >
                     <a id="Video_keywords" style="width: 500px"
                       >影片關鍵字: {{ result.Grammer_keywords}}</a
