@@ -1,7 +1,5 @@
-from unittest import result
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
-
 import pandas as pd
 import json
 app = Flask(__name__)
