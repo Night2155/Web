@@ -1,13 +1,18 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 import pandas as pd
-import json
+import aiml
+import os, sys
 app = Flask(__name__)
 # 連接資料庫
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://DESKTOP-GPKL4Q4\SQLEXPRESS/Video_data?driver=SQL+Server'
 db = SQLAlchemy(app)
-
+bot_path = "./Chatbot/"
+os.chdir(bot_path)
+mybot = aiml.Kernel()
+mybot.learn("std-startup.xml")
+mybot.respond('load aiml b')
 
 @app.route("/", methods=['GET', 'POST'])
 def homepage():
