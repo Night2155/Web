@@ -7,10 +7,15 @@
         </template>
     </category>
     <category>
-        <pattern>I want to know how to search video</pattern>
+        <pattern>how to search *</pattern>
         <template>
-            Please type in search words in the search bar
+            Please type in <star/> in the search bar
         </template>
     </category>
-
+    <category>
+        <pattern>How to play video</pattern>
+        <template>
+            Please click the video title
+        </template>
+    </category>
 </aiml>
