@@ -10,9 +10,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://DESKTOP-GPKL4Q4\SQLEXPRE
 db = SQLAlchemy(app)
 # bot_path = "./Chatbot/"
 # os.chdir(bot_path)
-# mybot = aiml.Kernel()
-# mybot.learn("std-startup.xml")
-# mybot.respond('load aiml b')
+mybot = aiml.Kernel()
+mybot.learn("./Chatbot/basic_chat.aiml")
+mybot.respond('load aiml b')
 
 @app.route("/", methods=['GET', 'POST'])
 def homepage():
@@ -31,7 +31,6 @@ def homepage():
     '''
     grammer_result = db.engine.execute(grammer_query)
     return render_template('DemoHomepage.html', result=grammer_result)
-
 
 @app.route("/search", methods=['GET', 'POST'])
 def search():
@@ -65,6 +64,12 @@ def search():
     # print(text_df)
     return text_df
 
-
+@app.route("/robot", methods=['GET', 'POST'])
+def robot_response():
+    if request.method == 'POST':
+        user_text = request.values.get('user_Text')
+        print(user_text)
+        response = mybot.respond(user_text)
+    return response
 if __name__ == "__main__":
     app.run(debug=True, port=7616)

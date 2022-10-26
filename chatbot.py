@@ -10,12 +10,12 @@ def get_module_dir(name):
 #alice_path = get_module_dir('aiml') + '\\botdata\\alice'
 mybot_path = './Chatbot'
 #切换到语料库所在工作目录
-os.chdir(mybot_path)
+# os.chdir(mybot_path)
 # alice = aiml.Kernel()
 # alice.learn("std-startup.xml")
 # alice.respond('LOAD ALICE')
 mybot = aiml.Kernel()
-mybot.learn("std-startup.xml")
+mybot.learn("./Chatbot/basic_chat.aiml")
 mybot.respond('load aiml b')
 while True:
     message = input("Enter your message >> ")
