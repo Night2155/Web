@@ -119,40 +119,40 @@
       }
     </style>
 
-    <script>
-      $(document).keypress(function (event) {
-        if (event.which == "13") {
-          event.preventDefault();
-        }
-      });
-      function check_form() {
-        if (chkspc(document.form1.customer.value) == "0") {
-          alert("不可有空格或空白");
-          return false;
-        }
-      }
+<!--    <script>-->
+<!--      $(document).keypress(function (event) {-->
+<!--        if (event.which == "13") {-->
+<!--          event.preventDefault();-->
+<!--        }-->
+<!--      });-->
+<!--      function check_form() {-->
+<!--        if (chkspc(document.form1.customer.value) == "0") {-->
+<!--          alert("不可有空格或空白");-->
+<!--          return false;-->
+<!--        }-->
+<!--      }-->
 
-      function chkspc(a) {
-        var i = a.length;
-        var j = 0;
-        var k = 0;
+<!--      function chkspc(a) {-->
+<!--        var i = a.length;-->
+<!--        var j = 0;-->
+<!--        var k = 0;-->
 
-        while (k < i) {
-          if (a.charAt(k) != " ") j = j + 1;
-          k = k + 1;
-        }
+<!--        while (k < i) {-->
+<!--          if (a.charAt(k) != " ") j = j + 1;-->
+<!--          k = k + 1;-->
+<!--        }-->
 
-        if (j == 0) {
-          return 0;
-        }
+<!--        if (j == 0) {-->
+<!--          return 0;-->
+<!--        }-->
 
-        if (i != j) {
-          return 2;
-        } else {
-          return 1;
-        }
-      }
-    </script>
+<!--        if (i != j) {-->
+<!--          return 2;-->
+<!--        } else {-->
+<!--          return 1;-->
+<!--        }-->
+<!--      }-->
+<!--    </script>-->
   </head>
   <body>
     <form id="form1" runat="server">
@@ -385,7 +385,7 @@
                       var image =
                         '<img src="https://img.youtube.com/vi/' +
                         data[i].video_id +
-                        '/maxresdefault.jpg" style="width: 500px; height: 250px" /></div>';
+                        '/default.jpg" style="width: 500px; height: 250px" /></div>';
                       var video_data_container =
                         '<div id="video_data_container">' +
                         '<a id="Video_title" style="width: 500px"' +
@@ -532,7 +532,7 @@
                       >{{result.Video_Title}}</a
                     >
                     <a id="Video_keywords" style="width: 500px"
-                      >影片關鍵字: {{ result.Grammer_keywords}}</a
+                      >影片關鍵字: {{ result.keywords}}</a
                     >
                     <br />
                   </div>
@@ -641,7 +641,7 @@
       <div class="chatbox chatbox22 chatbox--tray">
         <div class="chatbox__title">
           <h5>
-            <a href="#" style="font-size: 20px">EL-Robot</a>
+            <a style="font-size: 20px; color: white;">EL-Robot</a>
           </h5>
         </div>
         <div class="chatbox__body" id="chatroom_body">
@@ -686,7 +686,7 @@
               contenteditable="true"
             />
             <span class="input-group-btn">
-              <button class="btn bt_bg btn-sm btn-danger" id="btn-chat" onclick="EnterKeywords()">
+              <button type="button" class="btn btn-sm btn-danger" id="btn-chat" onclick="EnterKeywords()">
                 Enter
               </button>
             </span>
@@ -703,15 +703,14 @@
             });
         function EnterKeywords(){
           $(function(){
-            var chats = $("#btn-input").val()
-            var chatroom = $("#chatroom_body").html();
+            var chats = $("#btn-input").val();
             var top = "<div class=\"chatbox__body__message chatbox__body__message--right\">";
             var userimag = "<img src=\"/static/image/man.png\" alt=\"Picture\" />";
             var user_chat_section = "<div class=\"ul_section_full\">";
             var user_msg = "<ul class=\"ul_msg\">";
             var user_name = "<li><strong>User</strong></li>";
             var user_words = "<li id=\"uesr_questions\">"+ chats +"</li>";
-            var botton = "</ul></div></div>"
+            var botton = "</ul></div></div>";
             var all = top +
                     userimag +
                     user_chat_section +
@@ -719,10 +718,20 @@
                     user_name +
                     user_words +
                     botton;
-            $("#chatroom_body").append(all)
+            $("#chatroom_body").append(all);
+            ScorllDown();
+            Claerbtn_input();
             // alert(chats)
-
           })
+        }
+
+        function Claerbtn_input(){
+          var input = document.getElementById("btn-input");
+          input.value = "";
+        }
+        function ScorllDown(){
+          var chat = $("#chatroom_body");
+          chat.scrollTop(chat.prop('scrollHeight'));
         }
       </script>
 
