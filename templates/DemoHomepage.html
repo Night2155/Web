@@ -641,10 +641,10 @@
       <div class="chatbox chatbox22 chatbox--tray">
         <div class="chatbox__title">
           <h5>
-            <a href="javascript:void()" style="font-size: 20px">EL-Robot</a>
+            <a href="#" style="font-size: 20px">EL-Robot</a>
           </h5>
         </div>
-        <div class="chatbox__body">
+        <div class="chatbox__body" id="chatroom_body">
           <!--Robot message-->
           <div class="chatbox__body__message chatbox__body__message--left">
             <img src="/static/image/ai.png" alt="Picture" />
@@ -660,7 +660,7 @@
           <!--User message-->
           <div class="chatbox__body__message chatbox__body__message--right">
             <img src="/static/image/man.png" alt="Picture" />
-            <div class="clearfix"></div>
+<!--            <div class="clearfix"></div>-->
             <div class="ul_section_full">
               <ul class="ul_msg">
                 <li><strong>User</strong></li>
@@ -703,7 +703,25 @@
             });
         function EnterKeywords(){
           $(function(){
-            alert("btn-click")
+            var chats = $("#btn-input").val()
+            var chatroom = $("#chatroom_body").html();
+            var top = "<div class=\"chatbox__body__message chatbox__body__message--right\">";
+            var userimag = "<img src=\"/static/image/man.png\" alt=\"Picture\" />";
+            var user_chat_section = "<div class=\"ul_section_full\">";
+            var user_msg = "<ul class=\"ul_msg\">";
+            var user_name = "<li><strong>User</strong></li>";
+            var user_words = "<li id=\"uesr_questions\">"+ chats +"</li>";
+            var botton = "</ul></div></div>"
+            var all = top +
+                    userimag +
+                    user_chat_section +
+                    user_msg +
+                    user_name +
+                    user_words +
+                    botton;
+            $("#chatroom_body").append(all)
+            // alert(chats)
+
           })
         }
       </script>
@@ -740,112 +758,112 @@
       <script src="/static/js/main.js"></script>
 
       <!--  預覽影片  -->
-      <script>
-        var vid = document.getElementById("myVideo");
-        var timeout = 10;
-        var mode = 1;
+<!--      <script>-->
+<!--        var vid = document.getElementById("myVideo");-->
+<!--        var timeout = 10;-->
+<!--        var mode = 1;-->
 
-        function playVid() {
-          //  Preview
-          vid.play();
-          vid.addEventListener("timeupdate", function () {
-            if (this.currentTime >= timeout) {
-              pauseVid();
-            }
-          });
-        }
+<!--        function playVid() {-->
+<!--          //  Preview-->
+<!--          vid.play();-->
+<!--          vid.addEventListener("timeupdate", function () {-->
+<!--            if (this.currentTime >= timeout) {-->
+<!--              pauseVid();-->
+<!--            }-->
+<!--          });-->
+<!--        }-->
 
-        function pauseVid() {
-          //  Segment preview
-          if (mode === 1) {
-            timeout = 40;
-            vid.src = "video/TEDVideoDome.mp4#t=30,40";
-            console.log(mode);
-            mode++;
-            vid.load();
-            vid.play();
-          } else if (mode === 2) {
-            timeout = 70;
-            vid.src = "video/TEDVideoDome.mp4#t=60,70";
-            console.log(mode);
-            mode++;
-            vid.load();
-            vid.play();
-          } else if (mode === 3) {
-            timeout = 100;
-            vid.src = "video/TEDVideoDome.mp4#t=90,100";
-            console.log(mode);
-            mode++;
-            vid.load();
-            vid.play();
-          } else if (mode === 4) {
-            timeout = 130;
-            vid.src = "video/TEDVideoDome.mp4#t=120,130";
-            console.log(mode);
-            mode++;
-            vid.load();
-            vid.play();
-          } else if (mode === 5) {
-            timeout = 160;
-            vid.src = "video/TEDVideoDome.mp4#t=150,160";
-            console.log(mode);
-            mode++;
-            vid.load();
-            vid.play();
-          } else if (mode === 6) {
-            timeout = 190;
-            vid.src = "video/TEDVideoDome.mp4#t=180,190";
-            console.log(mode);
-            mode++;
-            vid.load();
-            vid.play();
-          } else if (mode === 7) {
-            timeout = 220;
-            vid.src = "video/TEDVideoDome.mp4#t=210,220";
-            console.log(mode);
-            mode++;
-            vid.load();
-            vid.play();
-          } else if (mode === 8) {
-            timeout = 250;
-            vid.src = "video/TEDVideoDome.mp4#t=240,250";
-            console.log(mode);
-            mode++;
-            vid.load();
-            vid.play();
-          } else if (mode === 9) {
-            timeout = 280;
-            vid.src = "video/TEDVideoDome.mp4#t=270,280";
-            console.log(mode);
-            mode++;
-            vid.load();
-            vid.play();
-          } else if (mode === 10) {
-            timeout = 310;
-            vid.src = "video/TEDVideoDome.mp4#t=300,310";
-            console.log(mode);
-            mode++;
-            vid.load();
-            vid.play();
-          } else {
-            // 播放前300s後，隨即停止
-            vid.pause();
-          }
-        }
+<!--        function pauseVid() {-->
+<!--          //  Segment preview-->
+<!--          if (mode === 1) {-->
+<!--            timeout = 40;-->
+<!--            vid.src = "video/TEDVideoDome.mp4#t=30,40";-->
+<!--            console.log(mode);-->
+<!--            mode++;-->
+<!--            vid.load();-->
+<!--            vid.play();-->
+<!--          } else if (mode === 2) {-->
+<!--            timeout = 70;-->
+<!--            vid.src = "video/TEDVideoDome.mp4#t=60,70";-->
+<!--            console.log(mode);-->
+<!--            mode++;-->
+<!--            vid.load();-->
+<!--            vid.play();-->
+<!--          } else if (mode === 3) {-->
+<!--            timeout = 100;-->
+<!--            vid.src = "video/TEDVideoDome.mp4#t=90,100";-->
+<!--            console.log(mode);-->
+<!--            mode++;-->
+<!--            vid.load();-->
+<!--            vid.play();-->
+<!--          } else if (mode === 4) {-->
+<!--            timeout = 130;-->
+<!--            vid.src = "video/TEDVideoDome.mp4#t=120,130";-->
+<!--            console.log(mode);-->
+<!--            mode++;-->
+<!--            vid.load();-->
+<!--            vid.play();-->
+<!--          } else if (mode === 5) {-->
+<!--            timeout = 160;-->
+<!--            vid.src = "video/TEDVideoDome.mp4#t=150,160";-->
+<!--            console.log(mode);-->
+<!--            mode++;-->
+<!--            vid.load();-->
+<!--            vid.play();-->
+<!--          } else if (mode === 6) {-->
+<!--            timeout = 190;-->
+<!--            vid.src = "video/TEDVideoDome.mp4#t=180,190";-->
+<!--            console.log(mode);-->
+<!--            mode++;-->
+<!--            vid.load();-->
+<!--            vid.play();-->
+<!--          } else if (mode === 7) {-->
+<!--            timeout = 220;-->
+<!--            vid.src = "video/TEDVideoDome.mp4#t=210,220";-->
+<!--            console.log(mode);-->
+<!--            mode++;-->
+<!--            vid.load();-->
+<!--            vid.play();-->
+<!--          } else if (mode === 8) {-->
+<!--            timeout = 250;-->
+<!--            vid.src = "video/TEDVideoDome.mp4#t=240,250";-->
+<!--            console.log(mode);-->
+<!--            mode++;-->
+<!--            vid.load();-->
+<!--            vid.play();-->
+<!--          } else if (mode === 9) {-->
+<!--            timeout = 280;-->
+<!--            vid.src = "video/TEDVideoDome.mp4#t=270,280";-->
+<!--            console.log(mode);-->
+<!--            mode++;-->
+<!--            vid.load();-->
+<!--            vid.play();-->
+<!--          } else if (mode === 10) {-->
+<!--            timeout = 310;-->
+<!--            vid.src = "video/TEDVideoDome.mp4#t=300,310";-->
+<!--            console.log(mode);-->
+<!--            mode++;-->
+<!--            vid.load();-->
+<!--            vid.play();-->
+<!--          } else {-->
+<!--            // 播放前300s後，隨即停止-->
+<!--            vid.pause();-->
+<!--          }-->
+<!--        }-->
 
-        function bigImg(x) {
-          vid.play();
-          vid.addEventListener("timeupdate", function () {
-            if (this.currentTime >= timeout) {
-              pauseVid();
-            }
-          });
-        }
+<!--        function bigImg(x) {-->
+<!--          vid.play();-->
+<!--          vid.addEventListener("timeupdate", function () {-->
+<!--            if (this.currentTime >= timeout) {-->
+<!--              pauseVid();-->
+<!--            }-->
+<!--          });-->
+<!--        }-->
 
-        function normalImg(x) {
-          vid.pause();
-        }
-      </script>
+<!--        function normalImg(x) {-->
+<!--          vid.pause();-->
+<!--        }-->
+<!--      </script>-->
     </form>
   </body>
 </html>
