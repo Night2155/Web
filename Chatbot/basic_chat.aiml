@@ -7,9 +7,9 @@
         </template>
     </category>
     <category>
-        <pattern>Nice to meet you</pattern>
+        <pattern>I want to know how to search video</pattern>
         <template>
-            Nice to meet you too !!
+            Please type in search words in the search bar
         </template>
     </category>
 
