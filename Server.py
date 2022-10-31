@@ -6,7 +6,10 @@ import os, sys
 app = Flask(__name__)
 # 連接資料庫
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://DESKTOP-GPKL4Q4\SQLEXPRESS/Video_data?driver=SQL+Server'
+# Ting's PC
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://DESKTOP-GPKL4Q4\SQLEXPRESS/Video_data?driver=SQL+Server'
+# iLab
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://DESKTOP-5RKI5L6\SQLEXPRESS/Video_data?driver=SQL+Server'
 db = SQLAlchemy(app)
 # bot_path = "./Chatbot/"
 # os.chdir(bot_path)
@@ -24,13 +27,13 @@ def homepage():
     # '''
     # result = db.engine.execute(query)
     # return render_template('DemoHomepage.html', vc_id=result)
-    grammer_query = '''
-    SELECT   Grammer_id.Video_Title, Grammer_id.VideoID, Grammer_keywords.keywords
-    FROM     Grammer_id INNER JOIN
-             Grammer_keywords ON Grammer_id.Grammer_id = Grammer_keywords.Grammer_uid
+    grammar_query = '''
+    SELECT   Grammar_id.Video_Title, Grammar_id.VideoID, Grammar_keywords.keywords
+    FROM     Grammar_id INNER JOIN
+             Grammar_keywords ON Grammar_id.Grammar_id = Grammar_keywords.Grammar_uid
     '''
-    grammer_result = db.engine.execute(grammer_query)
-    return render_template('DemoHomepage.html', result=grammer_result)
+    grammar_result = db.engine.execute(grammar_query)
+    return render_template('DemoHomepage.html', result=grammar_result)
 
 @app.route("/search", methods=['GET', 'POST'])
 def search():
@@ -45,15 +48,15 @@ def search():
     if(len(keyword) > 0):
         bindingwords = "'%"+keyword+"%'"  # 字串串接
         query = '''
-        SELECT   Grammer_id.Video_Title, Grammer_id.VideoID, Grammer_keywords.keywords
-        FROM     Grammer_id INNER JOIN
-                 Grammer_keywords ON Grammer_id.Grammer_id = Grammer_keywords.Grammer_uid
-        WHERE Grammer_id.Video_Title LIKE '''+bindingwords+''' OR Grammer_keywords.keywords LIKE '''+bindingwords
+        SELECT   Grammar_id.Video_Title, Grammar_id.VideoID, Grammar_keywords.keywords
+        FROM     Grammar_id INNER JOIN
+                 Grammar_keywords ON Grammar_id.Grammar_id = Grammar_keywords.Grammar_uid
+        WHERE Grammer_id.Video_Title LIKE '''+bindingwords+''' OR Grammar_keywords.keywords LIKE '''+bindingwords
     elif(len(keyword) == 0):
         query = '''
-        SELECT   Grammer_id.Video_Title, Grammer_id.VideoID, Grammer_keywords.keywords
-        FROM     Grammer_id INNER JOIN
-                 Grammer_keywords ON Grammer_id.Grammer_id = Grammer_keywords.Grammer_uid
+        SELECT   Grammar_id.Video_Title, Grammar_id.VideoID, Grammar_keywords.keywords
+        FROM     Grammar_id INNER JOIN
+                 Grammar_keywords ON Grammar_id.Grammar_id = Grammar_keywords.Grammar_uid
         '''
 
     result3 = db.engine.execute(query).fetchall()
