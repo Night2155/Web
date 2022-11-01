@@ -254,10 +254,10 @@
 <!--                                        </ul> &ndash;&gt;-->
 <!--                    </li>-->
 
-<!--                    <li class="active">-->
-<!--                      <a href="#">VOCABULARY</a>-->
-<!--                      &lt;!&ndash; <a href="http://ilearning.csie.stust.edu.tw/">Contact</a> &ndash;&gt;-->
-<!--                    </li>-->
+                    <li class="active">
+                      <a style="font-size: 15px;" target="_blank" href="https://ilearning.csie.stust.edu.tw/Grammar/">英文文章檢索平台</a>
+                      <!-- <a href="http://ilearning.csie.stust.edu.tw/">Contact</a> -->
+                    </li>
                     <!-- <li class="active">
                       <asp:Button
                         ID="Button2"
@@ -363,12 +363,14 @@
                     if (searchtext == "") {
                       alert("請輸入關鍵字");
                     }
-                    data = JSON.parse(data);
-                    //console.log(data[0].Title);
+                    else {
+                      data = JSON.parse(data);
+                    // console.log(data[0].Title);
                     // console.log(obj[0].video_id);
                     // console.log(obj[0].keywords);
-                    $(document.getElementsByClassName("project-content")).html(
-                      ""
+                    if(data[0].Title != ""){
+                      $(document.getElementsByClassName("project-content")).html(
+                      ''
                     );
                     for (var i = 0; i < data.length; i++) {
                       // console.log(data[i].Title);
@@ -376,7 +378,6 @@
                       // console.log(data[i].keywords);
                       var top =
                         '<div id="video_container" style="display: flex;">';
-
                       var Video_info_container =
                         '<div id="Video_info_container">';
                       var container = '<div style="display: flex">';
@@ -399,6 +400,7 @@
                         data[i].keywords +
                         "</a><br/>";
                       var end = "</div></div><br/></div></div>";
+                      var number = "<a>共有+"+data.count+"筆搜尋結果</a>"
                       var fullTags =
                         top +
                         Video_info_container +
@@ -408,9 +410,18 @@
                         video_data_container +
                         video_keywords +
                         end;
-                      $(
-                        document.getElementsByClassName("project-content")
+                      $(document.getElementsByClassName("project-content")
                       ).append(fullTags);
+                    }
+                    }
+
+                      // else if(data){
+                      //   fullTags = "<a>No Result Please Change Search Keywords</a>"
+                      //   $(
+                      //   document.getElementsByClassName("project-content")
+                      // ).append(fullTags);
+                      // }
+
                     }
                   },
                   error: function (error) {
@@ -706,6 +717,7 @@
             });
         function EnterKeywords(){
           $(function(){
+            // 使用者的聊天氣泡
             var chats = $("#btn-input").val();
             var top = "<div class=\"chatbox__body__message chatbox__body__message--right\">";
             var userimag = "<img src=\"/static/image/man.png\" alt=\"Picture\" />";
@@ -723,13 +735,13 @@
                     bottom;
             $("#chatroom_body").append(all);
             Robot_Response(chats);
-
             Claerbtn_input();
             // alert(chats)
           })
         }
         function Robot_Response(user_Text){
           $(function (){
+            // 機器人聊天氣泡
             $.ajax({
               type: "POST",
               url: "/robot",
@@ -756,6 +768,13 @@
                         bottom;
                 $("#chatroom_body").append(result);
                 ScorllDown();
+                // 機器人進行搜尋動作
+                if(user_Text.includes("我想搜尋")){
+                  // console.log(user_Text.includes("我想搜尋"))
+                  value = user_Text.split('我想搜尋')[1]
+                  $("#keywordText").val(value);
+                  user_search();
+                }
               }
             })
           })
@@ -769,6 +788,7 @@
           var chat = $("#chatroom_body");
           chat.scrollTop(chat.prop('scrollHeight'));
         }
+
       </script>
 
       <!-- Go to top btn-->

@@ -18,4 +18,10 @@
             Please click the video title
         </template>
     </category>
+    <category>
+        <pattern>我想搜尋*</pattern>
+        <template>
+            為您搜尋<star/>
+        </template>
+    </category>
 </aiml>

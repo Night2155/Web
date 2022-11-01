@@ -68,8 +68,11 @@ def search():
 def robot_response():
     if request.method == 'POST':
         user_text = request.values.get('user_Text')
-        print(user_text)
+        print(user_text[0:4])
         response = mybot.respond(user_text)
+        if user_text[0:4] == "我想搜尋":
+            response = response.replace(" ", "")
     return response
+
 if __name__ == "__main__":
     app.run(debug=True, port=7616)
