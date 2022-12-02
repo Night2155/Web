@@ -1720,13 +1720,13 @@ Listing Page
 
 .listing-page .item .right-content {
   display: inline-block;
-  padding: 45px;
+  padding: 30px;
 }
 
 .listing-page .item .right-content h4 {
-  font-size: 20px;
+  font-size: 30px;
   color: #2a2a2a;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 20px;
 }
 
@@ -1764,13 +1764,13 @@ Listing Page
 .listing-page .item .right-content span.details {
   display: block;
   margin-bottom: 30px;
-  font-size: 15px;
+  font-size: 20px;
   color: #8d99af;
 }
 
 .listing-page .item .right-content span.details em {
   font-style: normal;
-  color: #2a2a2a;
+  color: #009999;
 }
 
 .listing-page .item .right-content span.info {
