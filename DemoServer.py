@@ -25,10 +25,23 @@ mybot.respond('load aiml b')
 @app.route("/", methods=['GET', 'POST'])
 def homepage():
     # 載入所有資料庫的影片資訊
-    grammar_query = ''' SELECT * FROM Grammar_Table '''
-    grammar_result = db.engine.execute(grammar_query)
-    return render_template('DemoHomepage.html', result=grammar_result, result2=grammar_result)
-    # return render_template('index.html', grammar_result = grammar_result)
+    # grammar_query = ''' SELECT * FROM Grammar_Table '''
+    Grammar_random_sql = '''
+    SELECT TOP 9 Grammar_Table.Video_Title, Grammar_Table.VideoID
+    FROM Grammar_Table
+    ORDER BY NEWID()'''
+    Writing_random_sql = '''
+    SELECT TOP 9 Writing_Table.Video_Title, Writing_Table.VideoID
+    FROM Writing_Table
+    ORDER BY NEWID()'''
+    Reading_random_sql = '''
+    SELECT TOP 9 Reading_Table.Video_Title, Reading_Table.VideoID
+    FROM Reading_Table
+    ORDER BY NEWID()'''
+    grammar_result = db.engine.execute(Grammar_random_sql)
+    Writing_result = db.engine.execute(Writing_random_sql)
+    Reading_result = db.engine.execute(Reading_random_sql)
+    return render_template('index.html', result=grammar_result, result2=Writing_result, result3=Reading_result)
 
 
 @app.route("/search", methods=['GET', 'POST'])
