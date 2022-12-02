@@ -11,9 +11,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://DESKTOP-GPKL4Q4\SQLEXPRE
 db = SQLAlchemy(app)
 # bot_path = "./Chatbot/"
 # os.chdir(bot_path)
-mybot = aiml.Kernel()
-mybot.learn("./Chatbot/basic_chat.aiml")
-mybot.respond('load aiml b')
+# mybot = aiml.Kernel()
+# mybot.learn("./Chatbot/basic_chat.aiml")
+# mybot.respond('load aiml b')
 
 # Grammar Writing Reading
 # Grammar_random_sql = '''
@@ -41,7 +41,7 @@ def homepage():
     grammar_result = db.engine.execute(Grammar_random_sql)
     Writing_result = db.engine.execute(Writing_random_sql)
     Reading_result = db.engine.execute(Reading_random_sql)
-    return render_template('index.html', result=grammar_result, result2=Writing_result, result3=Reading_result)
+    return render_template('Copyindex.html', result=grammar_result, result2=Writing_result, result3=Reading_result)
 
 
 @app.route("/search", methods=['GET', 'POST'])
@@ -81,15 +81,15 @@ def search():
     return text_df
 
 
-@app.route("/robot", methods=['GET', 'POST'])
-def robot_response():
-    if request.method == 'POST':
-        user_text = request.values.get('user_Text')
-        print(user_text[0:4])
-        response = mybot.respond(user_text)
-        if user_text[0:4] == "我想搜尋":
-            response = response.replace(" ", "")
-    return response
+# @app.route("/robot", methods=['GET', 'POST'])
+# def robot_response():
+#     if request.method == 'POST':
+#         user_text = request.values.get('user_Text')
+#         print(user_text[0:4])
+#         response = mybot.respond(user_text)
+#         if user_text[0:4] == "我想搜尋":
+#             response = response.replace(" ", "")
+#     return response
 
 
 if __name__ == "__main__":
