@@ -52,12 +52,12 @@
             <!--第二頁顯示全部的影片-->
             <a class="nav-link nav-link-2 active" aria-current="page" href="#">All Videos</a>
           </li>
-<!--          <li class="nav-item">-->
-<!--            <a class="nav-link nav-link-3" href="#">About</a>-->
-<!--          </li>-->
-<!--          <li class="nav-item">-->
-<!--            <a class="nav-link nav-link-4" href="#">Contact</a>-->
-<!--          </li>-->
+          <!--          <li class="nav-item">-->
+          <!--            <a class="nav-link nav-link-3" href="#">About</a>-->
+          <!--          </li>-->
+          <!--          <li class="nav-item">-->
+          <!--            <a class="nav-link nav-link-4" href="#">Contact</a>-->
+          <!--          </li>-->
         </ul>
       </div>
     </div>
@@ -81,53 +81,252 @@
           <div class="col-lg-12">
             <div class="naccs">
               <div class="grid">
-                <div class="row">
-                  <div>
-                    <h2 style="color: #009999; margin-bottom: 1.5rem;">All Vidoes</h2>
+                <div class="container-fluid tm-container-content tm-mt-60">
+                  <div class="row mb-4">
+                    <h2 class="col-6 tm-text-primary">
+                      All Videos
+                    </h2>
                   </div>
-                  <div class="col-lg-9">
-                    <ul class="nacc">
-                      <!-- All Video items -->
-                      <li class="active">
-                        <div>
-                          <div class="col-lg-12">
-                            <div class="owl-carousel owl-listing">
+                  <div class="row tm-mb-90 tm-gallery">
 
-                              <!--Gammer-firstpage row-->
-                              <div class="item">
-                                <div class="row">
-                                  <!--Gammer-firstpage第一個項目-->
-                                  {% for result in result %}
-                                  <div class="col-lg-12">
-                                    <div class="listing-item">
-                                      <div class="left-image">
-                                        <a href="https://www.youtube.com/watch?v={{result.VideoID}}" target="_blank">
-                                          <img src="https://img.youtube.com/vi/{{result.VideoID}}/mqdefault.jpg" alt="">
-                                        </a>
-                                      </div>
-                                      <div class="right-content align-self-center">
-                                        <a href="#">
-                                          <h4>Prototype</h4>
-                                        </a>
-                                        <span class="details">
-                                          影片關鍵字 : <em>{{result.keywords}}}</em>
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  {% endfor %}
-                                </div>
-                              </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                      <figure class="effect-ming tm-video-item">
+                        <img src="https://img.youtube.com/vi/EWMRg716bIM/mqdefault.jpg" alt="Image" class="img-fluid">
+                        <figcaption class="d-flex align-items-center justify-content-center">
+                          <h2>watch</h2>
+                          <a href="https://www.youtube.com/watch?v=EWMRg716bIM">View more</a>
+                        </figcaption>
+                      </figure>
+                      <div class="d-flex justify-content-between tm-text-gray">
+                        <span>24 Oct 2020</span>
+                        <span>10,460 views</span>
+                      </div>
+                    </div>
 
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                      <figure class="effect-ming tm-video-item">
+                        <img src="https://img.youtube.com/vi/EWMRg716bIM/mqdefault.jpg" alt="Image" class="img-fluid">
+                        <figcaption class="d-flex align-items-center justify-content-center">
+                          <h2>watch</h2>
+                          <a href="https://www.youtube.com/watch?v=EWMRg716bIM">View more</a>
+                        </figcaption>
+                      </figure>
+                      <div class="d-flex justify-content-between tm-text-gray">
+                        <span>24 Oct 2020</span>
+                        <span>10,460 views</span>
+                      </div>
+                    </div>
 
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                      <figure class="effect-ming tm-video-item">
+                        <img src="https://img.youtube.com/vi/EWMRg716bIM/mqdefault.jpg" alt="Image" class="img-fluid">
+                        <figcaption class="d-flex align-items-center justify-content-center">
+                          <h2>watch</h2>
+                          <a href="https://www.youtube.com/watch?v=EWMRg716bIM">View more</a>
+                        </figcaption>
+                      </figure>
+                      <div class="d-flex justify-content-between tm-text-gray">
+                        <span>24 Oct 2020</span>
+                        <span>10,460 views</span>
+                      </div>
+                    </div>
 
-                  </div>
-                </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                      <figure class="effect-ming tm-video-item">
+                        <img src="https://img.youtube.com/vi/EWMRg716bIM/mqdefault.jpg" alt="Image" class="img-fluid">
+                        <figcaption class="d-flex align-items-center justify-content-center">
+                          <h2>watch</h2>
+                          <a href="https://www.youtube.com/watch?v=EWMRg716bIM">View more</a>
+                        </figcaption>
+                      </figure>
+                      <div class="d-flex justify-content-between tm-text-gray">
+                        <span>24 Oct 2020</span>
+                        <span>10,460 views</span>
+                      </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                      <figure class="effect-ming tm-video-item">
+                        <img src="https://img.youtube.com/vi/EWMRg716bIM/mqdefault.jpg" alt="Image" class="img-fluid">
+                        <figcaption class="d-flex align-items-center justify-content-center">
+                          <h2>watch</h2>
+                          <a href="https://www.youtube.com/watch?v=EWMRg716bIM">View more</a>
+                        </figcaption>
+                      </figure>
+                      <div class="d-flex justify-content-between tm-text-gray">
+                        <span>24 Oct 2020</span>
+                        <span>10,460 views</span>
+                      </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                      <figure class="effect-ming tm-video-item">
+                        <img src="https://img.youtube.com/vi/EWMRg716bIM/mqdefault.jpg" alt="Image" class="img-fluid">
+                        <figcaption class="d-flex align-items-center justify-content-center">
+                          <h2>watch</h2>
+                          <a href="https://www.youtube.com/watch?v=EWMRg716bIM">View more</a>
+                        </figcaption>
+                      </figure>
+                      <div class="d-flex justify-content-between tm-text-gray">
+                        <span>24 Oct 2020</span>
+                        <span>10,460 views</span>
+                      </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                      <figure class="effect-ming tm-video-item">
+                        <img src="https://img.youtube.com/vi/EWMRg716bIM/mqdefault.jpg" alt="Image" class="img-fluid">
+                        <figcaption class="d-flex align-items-center justify-content-center">
+                          <h2>watch</h2>
+                          <a href="https://www.youtube.com/watch?v=EWMRg716bIM">View more</a>
+                        </figcaption>
+                      </figure>
+                      <div class="d-flex justify-content-between tm-text-gray">
+                        <span>24 Oct 2020</span>
+                        <span>10,460 views</span>
+                      </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                      <figure class="effect-ming tm-video-item">
+                        <img src="https://img.youtube.com/vi/EWMRg716bIM/mqdefault.jpg" alt="Image" class="img-fluid">
+                        <figcaption class="d-flex align-items-center justify-content-center">
+                          <h2>watch</h2>
+                          <a href="https://www.youtube.com/watch?v=EWMRg716bIM">View more</a>
+                        </figcaption>
+                      </figure>
+                      <div class="d-flex justify-content-between tm-text-gray">
+                        <span>24 Oct 2020</span>
+                        <span>10,460 views</span>
+                      </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                      <figure class="effect-ming tm-video-item">
+                        <img src="https://img.youtube.com/vi/EWMRg716bIM/mqdefault.jpg" alt="Image" class="img-fluid">
+                        <figcaption class="d-flex align-items-center justify-content-center">
+                          <h2>watch</h2>
+                          <a href="https://www.youtube.com/watch?v=EWMRg716bIM">View more</a>
+                        </figcaption>
+                      </figure>
+                      <div class="d-flex justify-content-between tm-text-gray">
+                        <span>24 Oct 2020</span>
+                        <span>10,460 views</span>
+                      </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                      <figure class="effect-ming tm-video-item">
+                        <img src="https://img.youtube.com/vi/EWMRg716bIM/mqdefault.jpg" alt="Image" class="img-fluid">
+                        <figcaption class="d-flex align-items-center justify-content-center">
+                          <h2>watch</h2>
+                          <a href="https://www.youtube.com/watch?v=EWMRg716bIM">View more</a>
+                        </figcaption>
+                      </figure>
+                      <div class="d-flex justify-content-between tm-text-gray">
+                        <span>24 Oct 2020</span>
+                        <span>10,460 views</span>
+                      </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                      <figure class="effect-ming tm-video-item">
+                        <img src="https://img.youtube.com/vi/EWMRg716bIM/mqdefault.jpg" alt="Image" class="img-fluid">
+                        <figcaption class="d-flex align-items-center justify-content-center">
+                          <h2>watch</h2>
+                          <a href="https://www.youtube.com/watch?v=EWMRg716bIM">View more</a>
+                        </figcaption>
+                      </figure>
+                      <div class="d-flex justify-content-between tm-text-gray">
+                        <span>24 Oct 2020</span>
+                        <span>10,460 views</span>
+                      </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                      <figure class="effect-ming tm-video-item">
+                        <img src="https://img.youtube.com/vi/EWMRg716bIM/mqdefault.jpg" alt="Image" class="img-fluid">
+                        <figcaption class="d-flex align-items-center justify-content-center">
+                          <h2>watch</h2>
+                          <a href="https://www.youtube.com/watch?v=EWMRg716bIM">View more</a>
+                        </figcaption>
+                      </figure>
+                      <div class="d-flex justify-content-between tm-text-gray">
+                        <span>24 Oct 2020</span>
+                        <span>10,460 views</span>
+                      </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                      <figure class="effect-ming tm-video-item">
+                        <img src="https://img.youtube.com/vi/EWMRg716bIM/mqdefault.jpg" alt="Image" class="img-fluid">
+                        <figcaption class="d-flex align-items-center justify-content-center">
+                          <h2>watch</h2>
+                          <a href="https://www.youtube.com/watch?v=EWMRg716bIM">View more</a>
+                        </figcaption>
+                      </figure>
+                      <div class="d-flex justify-content-between tm-text-gray">
+                        <span>24 Oct 2020</span>
+                        <span>10,460 views</span>
+                      </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                      <figure class="effect-ming tm-video-item">
+                        <img src="https://img.youtube.com/vi/EWMRg716bIM/mqdefault.jpg" alt="Image" class="img-fluid">
+                        <figcaption class="d-flex align-items-center justify-content-center">
+                          <h2>watch</h2>
+                          <a href="https://www.youtube.com/watch?v=EWMRg716bIM">View more</a>
+                        </figcaption>
+                      </figure>
+                      <div class="d-flex justify-content-between tm-text-gray">
+                        <span>24 Oct 2020</span>
+                        <span>10,460 views</span>
+                      </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                      <figure class="effect-ming tm-video-item">
+                        <img src="https://img.youtube.com/vi/EWMRg716bIM/mqdefault.jpg" alt="Image" class="img-fluid">
+                        <figcaption class="d-flex align-items-center justify-content-center">
+                          <h2>watch</h2>
+                          <a href="https://www.youtube.com/watch?v=EWMRg716bIM">View more</a>
+                        </figcaption>
+                      </figure>
+                      <div class="d-flex justify-content-between tm-text-gray">
+                        <span>24 Oct 2020</span>
+                        <span>10,460 views</span>
+                      </div>
+                    </div>
+                    
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                      <figure class="effect-ming tm-video-item">
+                        <img src="https://img.youtube.com/vi/EWMRg716bIM/mqdefault.jpg" alt="Image" class="img-fluid">
+                        <figcaption class="d-flex align-items-center justify-content-center">
+                          <h2>watch</h2>
+                          <a href="https://www.youtube.com/watch?v=EWMRg716bIM">View more</a>
+                        </figcaption>
+                      </figure>
+                      <div class="d-flex justify-content-between tm-text-gray">
+                        <span>24 Oct 2020</span>
+                        <span>10,460 views</span>
+                      </div>
+                    </div>
+
+                  </div> <!-- row -->
+                  <!-- <div class="row tm-mb-90">
+                    <div class="col-12 d-flex justify-content-between align-items-center tm-paging-col">
+                      <a href="javascript:void(0);" class="btn btn-primary tm-btn-prev mb-2 disabled">Previous</a>
+                      <div class="tm-paging d-flex">
+                        <a href="javascript:void(0);" class="active tm-paging-link">1</a>
+                        <a href="javascript:void(0);" class="tm-paging-link">2</a>
+                        <a href="javascript:void(0);" class="tm-paging-link">3</a>
+                        <a href="javascript:void(0);" class="tm-paging-link">4</a>
+                      </div>
+                      <a href="javascript:void(0);" class="btn btn-primary tm-btn-next">Next Page</a>
+                    </div>
+                  </div> -->
+                </div> <!-- container-fluid, tm-container-content -->
               </div>
             </div>
           </div>
@@ -186,17 +385,17 @@
     </div>
   </div>
 
-<!--chatroom action-->>
+  <!--chatroom action-->>
   <script>
     var input = document.getElementById("btn-input");
-        input.addEventListener("keypress", function (event) {
-          if (event.key === "Enter") {
-            event.preventDefault();
-            document.getElementById("btn-chat").click();
-          }
-        });
-    function EnterKeywords(){
-      $(function(){
+    input.addEventListener("keypress", function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("btn-chat").click();
+      }
+    });
+    function EnterKeywords() {
+      $(function () {
         // User Message 使用者的聊天氣泡
         var chats = $("#btn-input").val();
         var top = "<div class=\"chatbox__body__message chatbox__body__message--right\">";
@@ -204,31 +403,31 @@
         var user_chat_section = "<div class=\"ul_section_full\">";
         var user_msg = "<ul class=\"ul_msg\">";
         var user_name = "<li><strong>User</strong></li>";
-        var user_words = "<li id=\"uesr_questions\">"+ chats +"</li>";
+        var user_words = "<li id=\"uesr_questions\">" + chats + "</li>";
         var bottom = "</ul></div></div>";
         var all = top +
-                userimag +
-                user_chat_section +
-                user_msg +
-                user_name +
-                user_words +
-                bottom;
+          userimag +
+          user_chat_section +
+          user_msg +
+          user_name +
+          user_words +
+          bottom;
         $("#chatroom_body").append(all);
         Robot_Response(chats);
         Claerbtn_input();
         // alert(chats)
       })
     }
-    function Robot_Response(user_Text){
-      $(function (){
+    function Robot_Response(user_Text) {
+      $(function () {
         // Robot Message 機器人聊天氣泡
         $.ajax({
           type: "POST",
           url: "/robot",
-          data: { user_Text: user_Text},
-          success: function (data){
+          data: { user_Text: user_Text },
+          success: function (data) {
             console.log(data)
-            if(data == ""){
+            if (data == "") {
               data = "Sorry, what did you say?"
             }
             var top = "<div class=\"chatbox__body__message chatbox__body__message--left\">";
@@ -236,20 +435,20 @@
             var robot_text_section = "<div class=\"ul_section_full\">";
             var robot_msg = "<ul class=\"ul_msg\">";
             var robot_name = "<li><strong>AI_Robot</strong></li>";
-            var robot_words = "<li id=\"robot_respones\">"+ data +"</li>";
+            var robot_words = "<li id=\"robot_respones\">" + data + "</li>";
             var bottom = "</ul></div></div>";
             var result =
-                    top +
-                    robot_img +
-                    robot_text_section +
-                    robot_msg +
-                    robot_name +
-                    robot_words +
-                    bottom;
+              top +
+              robot_img +
+              robot_text_section +
+              robot_msg +
+              robot_name +
+              robot_words +
+              bottom;
             $("#chatroom_body").append(result);
             ScorllDown();
             // Robot Search For User's request 機器人進行搜尋動作
-            if(user_Text.includes("我想搜尋")){
+            if (user_Text.includes("我想搜尋")) {
               // console.log(user_Text.includes("我想搜尋"))
               value = user_Text.split('我想搜尋')[1]
               $("#keywordText").val(value);
@@ -260,11 +459,11 @@
       })
     }
 
-    function Claerbtn_input(){
+    function Claerbtn_input() {
       var input = document.getElementById("btn-input");
       input.value = "";
     }
-    function ScorllDown(){
+    function ScorllDown() {
       var chat = $("#chatroom_body");
       chat.scrollTop(chat.prop('scrollHeight'));
     }
