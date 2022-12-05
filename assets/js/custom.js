@@ -7,11 +7,11 @@
     var box = $(".header-text").height();
     var header = $("header").height();
 
-    // if (scroll >= box - header) {
-    //   $("header").addClass("background-header");
-    // } else {
-    //   $("header").removeClass("background-header");
-    // }
+    if (scroll >= box - header) {
+      $("header").addClass("background-header");
+    } else {
+      $("header").removeClass("background-header");
+    }
   });
 
   // Acc 左側選單選擇效果
@@ -35,8 +35,8 @@
   });
 
   $(".owl-listing").owlCarousel({
-    items: 1,
-    loop: true,
+    // items: 1,
+    // loop: true,
     dots: true,
     nav: false,
     //autoplay: true,

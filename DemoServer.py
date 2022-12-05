@@ -27,15 +27,15 @@ def homepage():
     # 載入所有資料庫的影片資訊
     # grammar_query = ''' SELECT * FROM Grammar_Table '''
     Grammar_random_sql = '''
-    SELECT TOP 9 Grammar_Table.Video_Title, Grammar_Table.VideoID
+    SELECT TOP 6 Grammar_Table.Video_Title, Grammar_Table.VideoID
     FROM Grammar_Table
     ORDER BY NEWID()'''
     Writing_random_sql = '''
-    SELECT TOP 9 Writing_Table.Video_Title, Writing_Table.VideoID
+    SELECT TOP 6 Writing_Table.Video_Title, Writing_Table.VideoID
     FROM Writing_Table
     ORDER BY NEWID()'''
     Reading_random_sql = '''
-    SELECT TOP 9 Reading_Table.Video_Title, Reading_Table.VideoID
+    SELECT TOP 6 Reading_Table.Video_Title, Reading_Table.VideoID
     FROM Reading_Table
     ORDER BY NEWID()'''
     grammar_result = db.engine.execute(Grammar_random_sql)
