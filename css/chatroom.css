@@ -18,7 +18,7 @@
 }
 
 .chatbox--tray {
-    bottom: -550px;
+    bottom: -600px;
 }
 
 .chatbox--closed {
@@ -361,4 +361,22 @@ padding-bottom: 5px;padding-top:15px;
 }
 .col-lg-3.control-label {
     text-align: left;
+}
+
+.chatbubble {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    border-radius: 50%;
+    background: #086969;
+    margin-top: 10px;
+    padding: 20px;
+    width: 75px;
+    height: 75px;
+}
+
+.chatbubble img {
+    position: absolute;
+    width: 40px;
+    height: 40px;
 }

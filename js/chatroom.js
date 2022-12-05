@@ -1,19 +1,20 @@
 (function($) {
     $(document).ready(function() {
         var $chatbox = $('.chatbox'),
-            $chatboxTitle = $('.chatbox__title'),
-            $chatboxTitleClose = $('.chatbox__title__close'),
-            $chatboxCredentials = $('.chatbox__credentials');
-        $chatboxTitle.on('click', function() {
+            // $chatboxTitle = $('.chatbox__title');
+            $chatbubble = $('.chatbubble'),
+            $chatbox_close = $('.chatbox__title__close');
+        $chatbubble.on('click', function() {
             $chatbox.toggleClass('chatbox--tray');
+            $chatbubble.hide();
         });
-        $chatboxTitleClose.on('click', function(e) {
-            e.stopPropagation();
-            $chatbox.addClass('chatbox--closed');
-        });
-        $chatbox.on('transitionend', function() {
-            if ($chatbox.hasClass('chatbox--closed')) $chatbox.remove();
-        });
+
+        $chatbox_close.on('click', function() {
+            $chatbox.toggleClass('chatbox--tray');
+            $chatbubble.delay('fast').fadeIn();
+        })
+
         
     });
+    
 })(jQuery);
