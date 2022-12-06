@@ -41,9 +41,13 @@ def homepage():
     grammar_result = db.engine.execute(Grammar_random_sql)
     Writing_result = db.engine.execute(Writing_random_sql)
     Reading_result = db.engine.execute(Reading_random_sql)
-    # return render_template('Copyindex.html', result=grammar_result, result2=Writing_result, result3=Reading_result)
-    return render_template('show_data.html', result=grammar_result, result2=Writing_result, result3=Reading_result)
+    # return render_template('All_Video_Page.html', result=grammar_result, result2=Writing_result, result3=Reading_result)
+    return render_template('HomePage.html', result=grammar_result, result2=Writing_result, result3=Reading_result)
+    # return render_template('show_data.html', result=grammar_result, result2=Writing_result, result3=Reading_result)
 
+@app.route("/SecondPage",methods=['GET','POST'])
+def SecondPage():
+    return render_template('All_Video_Page.html')
 
 @app.route("/search", methods=['GET', 'POST'])
 def search():
