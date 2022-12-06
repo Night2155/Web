@@ -27,21 +27,22 @@ def homepage():
     # 載入所有資料庫的影片資訊
     # grammar_query = ''' SELECT * FROM Grammar_Table '''
     Grammar_random_sql = '''
-    SELECT TOP 6 Grammar_Table.Video_Title, Grammar_Table.VideoID
+    SELECT TOP 6 Grammar_Table.Video_Title, Grammar_Table.VideoID, Grammar_Table.keywords
     FROM Grammar_Table
     ORDER BY NEWID()'''
     Writing_random_sql = '''
-    SELECT TOP 6 Writing_Table.Video_Title, Writing_Table.VideoID
+    SELECT TOP 6 Writing_Table.Video_Title, Writing_Table.VideoID, Writing_Table.keywords
     FROM Writing_Table
     ORDER BY NEWID()'''
     Reading_random_sql = '''
-    SELECT TOP 6 Reading_Table.Video_Title, Reading_Table.VideoID
+    SELECT TOP 6 Reading_Table.Video_Title, Reading_Table.VideoID, Reading_Table.keywords
     FROM Reading_Table
     ORDER BY NEWID()'''
     grammar_result = db.engine.execute(Grammar_random_sql)
     Writing_result = db.engine.execute(Writing_random_sql)
     Reading_result = db.engine.execute(Reading_random_sql)
-    return render_template('Copyindex.html', result=grammar_result, result2=Writing_result, result3=Reading_result)
+    # return render_template('Copyindex.html', result=grammar_result, result2=Writing_result, result3=Reading_result)
+    return render_template('show_data.html', result=grammar_result, result2=Writing_result, result3=Reading_result)
 
 
 @app.route("/search", methods=['GET', 'POST'])
@@ -54,7 +55,7 @@ def search():
         # searchtext 前端傳來的搜尋關鍵字
         keyword = request.values.get('searchtext')
         # print(keyword, len(keyword))
-    if(len(keyword) > 0):
+    if( len(keyword) > 0):
         bindingwords = "'%"+keyword+"%'"  # 字串串接
         # query = '''
         # SELECT   Grammer_id.Video_Title, Grammer_id.VideoID, Grammer_keywords.keywords
