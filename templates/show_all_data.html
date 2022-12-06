@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="static/js/search_bar.js"></script>
+  </head>
+  <body>
+    <form method="post" action="/search">
+      <input name="search_bar" type="text" style="width: 500px" />
+      <button type="submit">Submit</button>
+    </form>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>video_id</th>
+          <th>video_keywords</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for Grammer in grammer %}
+        <tr>
+          <td class="video_title">{{ Grammer.Grammer_title }}</td>
+          <td class="video_id">{{ Grammer.Grammer_video_id }}</td>
+          <td class="keywords">{{ Grammer.Grammer_keywords }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
