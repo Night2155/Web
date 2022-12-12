@@ -9,10 +9,9 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://DESKTOP-GPKL4Q4\SQLEXPRESS/Video_data?driver=SQL+Server'
 db = SQLAlchemy(app)
-# bot_path = "./Chatbot/"
-# os.chdir(bot_path)
-# mybot = aiml.Kernel()
-# mybot.learn("./Chatbot/basic_chat.aiml")
+# Robot Path and Learning Path
+mybot = aiml.Kernel()
+mybot.learn("./chat_robot/*.aiml")
 # mybot.respond('load aiml b')
 
 # Grammar Writing Reading
@@ -20,7 +19,6 @@ db = SQLAlchemy(app)
 # SELECT TOP 9 Grammar_Table.Video_Title, Grammar_Table.VideoID
 # FROM Grammar_Table
 # ORDER BY NEWID()'''
-
 
 @app.route("/", methods=['GET', 'POST'])
 def homepage():
@@ -47,6 +45,9 @@ def homepage():
 
 @app.route("/SecondPage",methods=['GET','POST'])
 def SecondPage():
+    query = ''' SELECT * FROM Grammar_Table '''
+    query2 = ''' SELECT * FROM Reading_Table '''
+    query3 = ''' SELECT * FROM Writing_Table '''
     return render_template('All_Video_Page.html')
 
 @app.route("/search", methods=['GET', 'POST'])
@@ -86,15 +87,15 @@ def search():
     return text_df
 
 
-# @app.route("/robot", methods=['GET', 'POST'])
-# def robot_response():
-#     if request.method == 'POST':
-#         user_text = request.values.get('user_Text')
-#         print(user_text[0:4])
-#         response = mybot.respond(user_text)
-#         if user_text[0:4] == "我想搜尋":
-#             response = response.replace(" ", "")
-#     return response
+@app.route("/robot", methods=['GET', 'POST'])
+def robot_response():
+    if request.method == 'POST':
+        user_text = request.values.get('user_Text')
+        print(user_text[0:4])
+        response = mybot.respond(user_text)
+        if user_text[0:4] == "我想搜尋":
+            response = response.replace(" ", "")
+    return response
 
 
 if __name__ == "__main__":
