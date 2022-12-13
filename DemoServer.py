@@ -46,9 +46,11 @@ def homepage():
 @app.route("/SecondPage",methods=['GET','POST'])
 def SecondPage():
     query = ''' SELECT * FROM Grammar_Table '''
+    result1 = db.engine.execute(query)
     query2 = ''' SELECT * FROM Reading_Table '''
+
     query3 = ''' SELECT * FROM Writing_Table '''
-    return render_template('All_Video_Page.html')
+    return render_template('All_Video_Page.html',result1 = result1)
 
 @app.route("/search", methods=['GET', 'POST'])
 def search():
