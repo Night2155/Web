@@ -9,7 +9,7 @@ $.ajax({
     // alert("SUCCESS!!!");
     console.log(Jdata.length);
     for (var i = 0; i < Jdata.length; i++) {
-      console.log(Jdata[i]);
+      console.log(Jdata[i]["Title"]);
     }
   },
 
