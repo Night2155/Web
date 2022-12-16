@@ -466,7 +466,7 @@ figure.effect-ming:hover img { opacity: 0.4; }
 }
 
 .tm-footer { font-size: 0.95rem; }
-.tm-footer-title { font-size: 1.4rem; }
+.tm-footer-title { font-size: 1.3rem; }
 
 /* Videos */
 #tm-video-container {
@@ -591,6 +591,11 @@ select:not([multiple]) {
     opacity: 1; /* Firefox */
 }
 
+.img-style {
+    width: 88px;
+    height: 130px;
+}
+
 @media (max-width: 991px) {
     .navbar-collapse {
         position: fixed;
@@ -643,3 +648,4 @@ select:not([multiple]) {
 
     .tm-social-links li { margin-right: 3px; }
 }
+
