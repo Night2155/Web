@@ -1,6 +1,3 @@
-// $.get("/Grammar_data", function (grammar_result) {
-//   console.log(grammar_result.length);
-// });
 $.ajax({
   url: "/Grammar_data",
   type: "GET",
@@ -21,32 +18,7 @@ $.ajax({
     var result3 = top + Page3 + end
     var result = result1 + result2 + result3
     $(document.getElementById("Grammar_List")).append(result);
-    $(".owl-listing").owlCarousel({
-      // items: 1,
-      // loop: true,
-      dots: true,
-      nav: false,
-      //autoplay: true,
-      margin: 30,
-      responsive: {
-        0: {
-          items: 1,
-        },
-        600: {
-          items: 1,
-        },
-        1000: {
-          items: 1,
-        },
-        1600: {
-          items: 1,
-        },
-      },
-    });
-
-
   },
-
   error: function () {
     // alert("ERROR!!!");
     console.log("傳遞文法資料錯誤");
