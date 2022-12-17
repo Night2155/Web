@@ -1,11 +1,18 @@
-$.ajax({
-  url: "/Grammar_data",
+$(function (){
+  Get_Data("/Grammar_data", "Grammar_List")
+  Get_Data("/Reading_data", "Reading_List")
+  Get_Data("/Writing_data", "Writing_List")
+
+});
+function Get_Data(data_Path, data_List){
+  $.ajax({
+  url: data_Path,
   type: "GET",
   dataType: "json",
   success: function (Jdata) {
     // alert("SUCCESS!!!");
     // console.log(Jdata);
-    $(document.getElementById("Grammar_List")).html('');
+    $(document.getElementById(data_List)).html('');
     var top = "<div class=\"item\"> <div class=\"row\">"
     var end = "</div> </div>"
     var content = "<div class=\"col-lg-12\"> <div class=\"listing-item\">"
@@ -17,13 +24,14 @@ $.ajax({
     var result2 = top + Page2 + end
     var result3 = top + Page3 + end
     var result = result1 + result2 + result3
-    $(document.getElementById("Grammar_List")).append(result);
+    $(document.getElementById(data_List)).append(result);
   },
   error: function () {
     // alert("ERROR!!!");
-    console.log("傳遞文法資料錯誤");
+    console.log("傳遞資料錯誤");
   },
 });
+}
 function Pages(Jdata,end,content,Pages,x,y){
   for (var i = x; i < y; i++) {
       var video_image =

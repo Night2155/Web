@@ -15,12 +15,6 @@ mybot = aiml.Kernel()
 mybot.learn("./chat_robot/*.aiml")
 # mybot.respond('load aiml b')
 
-# Grammar Writing Reading
-# Grammar_random_sql = '''
-# SELECT TOP 9 Grammar_Table.Video_Title, Grammar_Table.VideoID
-# FROM Grammar_Table
-# ORDER BY NEWID()'''
-
 
 @app.route("/", methods=['GET', 'POST'])
 def homepage():
@@ -43,26 +37,38 @@ def Grammar_data():
     text_df = text_df.to_json(orient='records', lines=False, force_ascii=False)
     text_df = text_df.replace("\/", "/")
     text_df = json.loads(text_df)
-    print(text_df[0])
-
     # print(text_df)
-    # Writing_random_sql = '''
-    # SELECT TOP 6 Writing_Table.Video_Title, Writing_Table.VideoID, Writing_Table.keywords
-    # FROM Writing_Table
-    # ORDER BY NEWID()'''
-    # Writing_result = db.engine.execute(Writing_random_sql).fetchall()
-    # text_df2 = pd.DataFrame(
-    #     Writing_result, columns=['Title', 'video_id', 'keywords'])
-    # text_df2 = text_df2.to_json(
-    #     orient='records', lines=False, force_ascii=False)
-    # text_df2 = text_df2.replace("\/", "/")
+    return text_df
 
-    # Reading_random_sql = '''
-    # SELECT TOP 6 Reading_Table.Video_Title, Reading_Table.VideoID, Reading_Table.keywords
-    # FROM Reading_Table
-    # ORDER BY NEWID()'''
-    # Reading_result = db.engine.execute(Reading_random_sql).fetchall()
 
+@app.route("/Writing_data", methods=['GET', 'POST'])
+def Writing_data():
+    Writing_random_sql = '''
+    SELECT TOP 18 Writing_Table.Video_Title, Writing_Table.VideoID, Writing_Table.keywords
+    FROM Writing_Table
+    ORDER BY NEWID()'''
+    Writing_result = db.engine.execute(Writing_random_sql).fetchall()
+    text_df = pd.DataFrame(
+        Writing_result, columns=['Title', 'video_id', 'keywords'])
+    text_df = text_df.to_json(
+        orient='records', lines=False, force_ascii=False)
+    text_df = text_df.replace("\/", "/")
+    text_df = json.loads(text_df)
+    return text_df
+
+
+@app.route("/Reading_data", methods=['GET', 'POST'])
+def Reading_data():
+    Reading_random_sql = '''
+    SELECT TOP 18 Reading_Table.Video_Title, Reading_Table.VideoID, Reading_Table.keywords
+    FROM Reading_Table
+    ORDER BY NEWID()'''
+    Reading_result = db.engine.execute(Reading_random_sql).fetchall()
+    text_df = pd.DataFrame(
+        Reading_result, columns=['Title', 'video_id', 'keywords'])
+    text_df = text_df.to_json(
+        orient='records', lines=False, force_ascii=False)
+    text_df = text_df.replace("\/", "/")
     return text_df
 
 
@@ -107,7 +113,7 @@ def search():
     # print([i for i in result3])
     # text_df = pd.DataFrame(result3, columns=['Title', 'video_id', 'keywords'])
     text_df = pd.DataFrame(
-        result3, columns=['Grammar_id', 'Title', 'video_id', 'channel_id', 'keywords'])
+        result3, columns=['Title', 'video_id', 'keywords'])
     text_df = text_df.to_json(orient='records', lines=False, force_ascii=False)
     text_df = text_df.replace("\/", "/")
     print(text_df)
