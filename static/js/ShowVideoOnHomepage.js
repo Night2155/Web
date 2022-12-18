@@ -24,7 +24,6 @@ function Get_Data(data_Path, data_List){
     var result3 = top + Page3 + end
     var result = result1 + result2 + result3
     $(document.getElementById(data_List)).append(result);
-
   },
   error: function () {
     // alert("ERROR!!!");
@@ -41,7 +40,7 @@ function Pages(Jdata,end,content,Pages,x,y){
           '<img src=\"https://img.youtube.com/vi/'+
           Jdata[i]["video_id"] +
           '/mqdefault.jpg\" style = "display:block; width:450px; height:250px;" />' +
-          '</a>'
+          '</a>';
       var video_content =
           '<div class=\"right-content align-self-center\">' +
           '<a href=\"https://www.youtube.com/watch?v='+
@@ -53,7 +52,7 @@ function Pages(Jdata,end,content,Pages,x,y){
           'Keywords: ' +
           '<em>' +
           Jdata[i]["keywords"] +
-          '</em></span></div>'
+          '</em></span></div>';
 
       if (i == 0 || i == 6 || i == 13){
         Pages = content + video_image + video_content + end
