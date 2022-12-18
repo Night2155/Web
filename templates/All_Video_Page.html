@@ -64,12 +64,12 @@
 
   <div class="tm-hero d-flex justify-content-center align-items-center"
     style="background-image: url(/static/img/demo.jpg)">
-    <form class="d-flex tm-search-form">
-      <input class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search" />
-      <button class="btn btn-outline-success tm-search-btn" type="submit">
+<!--    <form class="d-flex tm-search-form">-->
+      <input class="form-control tm-search-input" id="search_bar" type="search" placeholder="Search" aria-label="Search" />
+      <button class="btn btn-outline-success tm-search-btn" id="search_btn" type="submit" onclick="AskDataFromServer()">
         <i class="fas fa-search"></i>
       </button>
-    </form>
+<!--    </form>-->
   </div>
 
   <div class="container-fluid tm-container-content tm-mt-60">
@@ -95,8 +95,8 @@
                         </figcaption>
                       </figure>
                       <div class="d-flex justify-content-between tm-text-gray">
-                        <span>{{result.keywords}}</span>
-                        <span>10,460 views</span>
+                        <p>{{result.Title}}</p>
+                        <p>keywords</p>
                       </div>
                     </div>
                     {% endfor %}
@@ -337,6 +337,8 @@
   <script src="/static/js/chatroom.js"></script>
   <script src="/static/js/plugins.js"></script>
   <script src="/static/assets/js/gotop.js"></script>
+  <script src="/static/js/ShowVideoOnSecondpage.js"></script>
+  <script src="/static/js/keypress.js"></script>
   <!--    <script src="/static/js/ShowVideoOnHomepage.js"></script>-->
   <script>
     $(window).on("load", function () {

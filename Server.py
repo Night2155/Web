@@ -73,26 +73,18 @@ def Reading_data():
 
 @app.route("/SecondPage", methods=['GET', 'POST'])
 def SecondPage():
-    query = '''
-    SELECT Grammar_Table.Video_Title, Grammar_Table.VideoID, Grammar_Table.keywords FROM Grammar_Table
-    union
-    SELECT Reading_Table.Video_Title, Reading_Table.VideoID, Reading_Table.keywords FROM Reading_Table
-    union
-    SELECT Writing_Table.Video_Title, Writing_Table.VideoID, Writing_Table.keywords FROM Writing_Table'''
-    result = db.engine.execute(query).fetchall()
-    result = ChangeDataToList(result)
-
-    # query = ''' SELECT Grammar_Table.Video_Title, Grammar_Table.VideoID, Grammar_Table.keywords FROM Grammar_Table '''
-    # Grammar_result = db.engine.execute(query).fetchall()
-    # Grammar_result = ChangeDataToList(Grammar_result)
-    # query = ''' SELECT Reading_Table.Video_Title, Reading_Table.VideoID, Reading_Table.keywords FROM Reading_Table '''
-    # Reading_result = db.engine.execute(query).fetchall()
-    # Reading_result = ChangeDataToList(Reading_result)
-    # query = ''' SELECT Writing_Table.Video_Title, Writing_Table.VideoID, Writing_Table.keywords FROM Writing_Table '''
-    # Writing_result = db.engine.execute(query).fetchall()
-    # Writing_result = ChangeDataToList(Writing_result)
-    # result = Grammar_result + Reading_result + Writing_result
-    # print(result[0])
+    query = ''' SELECT Grammar_Table.Video_Title, Grammar_Table.VideoID, Grammar_Table.keywords FROM Grammar_Table '''
+    Grammar_result = db.engine.execute(query).fetchall()
+    Grammar_result = ChangeDataToList(Grammar_result)
+    query = ''' SELECT Reading_Table.Video_Title, Reading_Table.VideoID, Reading_Table.keywords FROM Reading_Table '''
+    Reading_result = db.engine.execute(query).fetchall()
+    Reading_result = ChangeDataToList(Reading_result)
+    query = ''' SELECT Writing_Table.Video_Title, Writing_Table.VideoID, Writing_Table.keywords FROM Writing_Table '''
+    Writing_result = db.engine.execute(query).fetchall()
+    Writing_result = ChangeDataToList(Writing_result)
+    result = Grammar_result + Reading_result + Writing_result
+    # List 排序
+    result = sorted(result, key=lambda i: i["Title"])
     return render_template('All_Video_Page.html', result1=result)
 
 
@@ -104,8 +96,8 @@ def search():
     if request.method == 'POST':
         # keyword = request.form['search_bar']
         # searchtext 前端傳來的搜尋關鍵字
-        keyword = request.values.get('searchtext')
-        # print(keyword, len(keyword))
+        keyword = request.values.get('keyword')
+        print(keyword, len(keyword))
     if(len(keyword) > 0):
         bindingwords = "'%"+keyword+"%'"  # 字串串接
         # query = '''
@@ -113,7 +105,7 @@ def search():
         # FROM     Grammer_id INNER JOIN
         #          Grammer_keywords ON Grammer_id.Grammer_id = Grammer_keywords.Grammer_uid
         # WHERE Grammer_id.Video_Title LIKE '''+bindingwords+''' OR Grammer_keywords.keywords LIKE '''+bindingwords
-        query = '''SELECT * FROM  Grammar_Table
+        query = '''SELECT Grammar_Table.Video_Title, Grammar_Table.VideoID, Grammar_Table.keywords FROM  Grammar_Table
                 WHERE Video_Title LIKE '''+bindingwords + ''' OR keywords LIKE '''+bindingwords
     elif(len(keyword) == 0):
         query = ''' SELECT * FROM Grammar_Table '''
@@ -123,15 +115,9 @@ def search():
         #          Grammer_keywords ON Grammer_id.Grammer_id = Grammer_keywords.Grammer_uid
         # '''
 
-    result3 = db.engine.execute(query).fetchall()
-    # print([i for i in result3])
-    # text_df = pd.DataFrame(result3, columns=['Title', 'video_id', 'keywords'])
-    text_df = pd.DataFrame(
-        result3, columns=['Title', 'video_id', 'keywords'])
-    text_df = text_df.to_json(orient='records', lines=False, force_ascii=False)
-    text_df = text_df.replace("\/", "/")
-    print(text_df)
-    return text_df
+    result = db.engine.execute(query).fetchall()
+    result = ChangeDataToList(result)
+    return result
 
 
 @app.route("/robot", methods=['GET', 'POST'])

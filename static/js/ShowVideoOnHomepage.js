@@ -2,7 +2,6 @@ $(function (){
   Get_Data("/Grammar_data", "Grammar_List")
   Get_Data("/Reading_data", "Reading_List")
   Get_Data("/Writing_data", "Writing_List")
-
 });
 function Get_Data(data_Path, data_List){
   $.ajax({
