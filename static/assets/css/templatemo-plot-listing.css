@@ -1773,6 +1773,7 @@ Listing Page
   color: #009999;
 }
 
+
 .listing-page .item .right-content span.info {
   line-height: 30px;
 }
@@ -1802,7 +1803,15 @@ Listing Page
   height: 14px;
 }
 
+span.titles em {
+  font-style: normal;
+  color: black;
+} 
 
+span.keywords em {
+  font-style: normal;
+  color: #009999;
+} 
 
 /* 
 ---------------------------------------------

@@ -94,9 +94,13 @@
                           <a href="https://www.youtube.com/watch?v={{result.video_id}}" target="_blank">View more</a>
                         </figcaption>
                       </figure>
-                      <div class="d-flex justify-content-between tm-text-gray">
-                        <p>{{result.Title}}</p>
-                        <p>keywords</p>
+                      <div class="d-flex flex-column justify-content-between tm-text-gray">
+                        <span class="titles">
+                          title:<em>{{result.keywords}}</em>
+                        </span>
+                        <span class="keywords">
+                          keywords:<em>{{result.keywords}}</em>
+                        </span>
                       </div>
                     </div>
                     {% endfor %}
