@@ -1773,6 +1773,10 @@ Listing Page
   color: #009999;
 }
 
+.listing-page .item .right-content span.details em:hover {
+  color: #086969;
+}
+
 
 .listing-page .item .right-content span.info {
   line-height: 30px;
@@ -1812,6 +1816,10 @@ span.keywords em {
   font-style: normal;
   color: #009999;
 } 
+
+span.keywords em:hover {
+  color: #086969;
+}
 
 /* 
 ---------------------------------------------
