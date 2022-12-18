@@ -11,7 +11,7 @@ function Get_Data(data_Path, data_List){
   dataType: "json",
   success: function (Jdata) {
     // alert("SUCCESS!!!");
-    // console.log(Jdata);
+    // console.log(typeof (Jdata));
     $(document.getElementById(data_List)).html('');
     var top = "<div class=\"item\"> <div class=\"row\">"
     var end = "</div> </div>"
@@ -25,6 +25,7 @@ function Get_Data(data_Path, data_List){
     var result3 = top + Page3 + end
     var result = result1 + result2 + result3
     $(document.getElementById(data_List)).append(result);
+
   },
   error: function () {
     // alert("ERROR!!!");

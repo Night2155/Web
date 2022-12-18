@@ -37,7 +37,6 @@ def Grammar_data():
     text_df = text_df.to_json(orient='records', lines=False, force_ascii=False)
     text_df = text_df.replace("\/", "/")
     text_df = json.loads(text_df)
-    # print(text_df)
     return text_df
 
 
@@ -74,12 +73,27 @@ def Reading_data():
 
 @app.route("/SecondPage", methods=['GET', 'POST'])
 def SecondPage():
-    query = ''' SELECT * FROM Grammar_Table '''
-    result1 = db.engine.execute(query)
-    query2 = ''' SELECT * FROM Reading_Table '''
+    query = '''
+    SELECT Grammar_Table.Video_Title, Grammar_Table.VideoID, Grammar_Table.keywords FROM Grammar_Table
+    union
+    SELECT Reading_Table.Video_Title, Reading_Table.VideoID, Reading_Table.keywords FROM Reading_Table
+    union
+    SELECT Writing_Table.Video_Title, Writing_Table.VideoID, Writing_Table.keywords FROM Writing_Table'''
+    result = db.engine.execute(query).fetchall()
+    result = ChangeDataToList(result)
 
-    query3 = ''' SELECT * FROM Writing_Table '''
-    return render_template('All_Video_Page.html', result1=result1)
+    # query = ''' SELECT Grammar_Table.Video_Title, Grammar_Table.VideoID, Grammar_Table.keywords FROM Grammar_Table '''
+    # Grammar_result = db.engine.execute(query).fetchall()
+    # Grammar_result = ChangeDataToList(Grammar_result)
+    # query = ''' SELECT Reading_Table.Video_Title, Reading_Table.VideoID, Reading_Table.keywords FROM Reading_Table '''
+    # Reading_result = db.engine.execute(query).fetchall()
+    # Reading_result = ChangeDataToList(Reading_result)
+    # query = ''' SELECT Writing_Table.Video_Title, Writing_Table.VideoID, Writing_Table.keywords FROM Writing_Table '''
+    # Writing_result = db.engine.execute(query).fetchall()
+    # Writing_result = ChangeDataToList(Writing_result)
+    # result = Grammar_result + Reading_result + Writing_result
+    # print(result[0])
+    return render_template('All_Video_Page.html', result1=result)
 
 
 @app.route("/search", methods=['GET', 'POST'])
@@ -130,6 +144,13 @@ def robot_response():
             response = response.replace(" ", "")
     return response
 
+def ChangeDataToList(data):
+    data = pd.DataFrame(
+        data, columns=['Title', 'video_id', 'keywords'])
+    data = data.to_json(orient='records', lines=False, force_ascii=False)
+    data = data.replace("\/", "/")
+    data = json.loads(data)
+    return data
 
 if __name__ == "__main__":
     app.run(debug=True, port=7616)
