@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 import pandas as pd
 import json
@@ -109,9 +109,6 @@ def search():
         union
         SELECT Writing_Table.Video_Title, Writing_Table.VideoID, Writing_Table.keywords FROM Writing_Table
         WHERE Video_Title LIKE '''+bindingwords + ''' OR keywords LIKE '''+bindingwords
-        # query = '''SELECT Grammar_Table.Video_Title, Grammar_Table.VideoID, Grammar_Table.keywords FROM  Grammar_Table
-        #         WHERE Video_Title LIKE '''+bindingwords + ''' OR keywords LIKE '''+bindingwords
-
     result = db.engine.execute(query).fetchall()
     result = ChangeDataToList(result)
     return result
@@ -125,6 +122,16 @@ def robot_response():
         response = mybot.respond(user_text)
         if user_text[0:4] == "我想搜尋":
             response = response.replace(" ", "")
+    return response
+
+@app.route("/robot2", methods=['GET', 'POST'])
+def robot_response_HomePage():
+    if request.method == 'POST':
+        user_text = request.values.get('user_Text')
+        print(user_text[0:4])
+        response = mybot.respond(user_text)
+        if user_text[0:4] == "我想搜尋":
+            response = "不好意思 此功能正在維修 請在ALL Video使用此功能"
     return response
 
 def ChangeDataToList(data):

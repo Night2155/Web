@@ -1689,7 +1689,7 @@
         // Robot Message 機器人聊天氣泡
         $.ajax({
           type: "POST",
-          url: "/robot",
+          url: "/robot2",
           data: { user_Text: user_Text },
           success: function (data) {
             console.log(data);
@@ -1714,13 +1714,6 @@
               bottom;
             $("#chatroom_body").append(result);
             ScorllDown();
-            // Robot Search For User's request 機器人進行搜尋動作
-            if (user_Text.includes("我想搜尋")) {
-              // console.log(user_Text.includes("我想搜尋"))
-              value = user_Text.split("我想搜尋")[1];
-              $("#keywordText").val(value);
-              user_search();
-            }
           },
         });
       });

@@ -250,8 +250,8 @@
             if (user_Text.includes("我想搜尋")) {
               // console.log(user_Text.includes("我想搜尋"))
               value = user_Text.split("我想搜尋")[1];
-              $("#keywordText").val(value);
-              user_search();
+              $("#search_bar").val(value);
+              AskDataFromServer();
             }
           },
         });
