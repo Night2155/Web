@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>測試中請勿打擾</title>
+  <title>英文教學小助手</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="" />
   <meta name="author" content="" />
@@ -40,7 +40,7 @@
 
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand">
         <!-- <i class="fas fa-film mr-2"></i> -->
         <img id="AI_icon" src="/static/img/asistente-robot.gif" alt="AI_Robot" />
         英文教學影片小助手
@@ -1680,7 +1680,7 @@
           bottom;
         $("#chatroom_body").append(all);
         Robot_Response(chats);
-        Claerbtn_input();
+        Clearbtn_input();
         // alert(chats)
       });
     }
@@ -1701,9 +1701,9 @@
             var robot_img = '<img src="/static/img/ai.png" alt="Picture" />';
             var robot_text_section = '<div class="ul_section_full">';
             var robot_msg = '<ul class="ul_msg">';
-            var robot_name = "<li><strong>AI_Robot</strong></li>";
-            var robot_words = '<li id="robot_respones">' + data + "</li>";
-            var bottom = "</ul></div></div>";
+            var robot_name = '<li><strong>AI_Robot</strong></li>';
+            var robot_words = '<li id="robot_respones">' + data + '</li>';
+            var bottom = '</ul></div></div>';
             var result =
               top +
               robot_img +
@@ -1726,7 +1726,7 @@
       });
     }
 
-    function Claerbtn_input() {
+    function Clearbtn_input() {
       var input = document.getElementById("btn-input");
       input.value = "";
     }
@@ -1775,7 +1775,7 @@
                 </svg></a>
             </li>
             <li class="mb-2">
-              <a href="https://csie.stust.edu.tw/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+              <a href="https://csie.stust.edu.tw/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                   fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
                   <path
                     d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z" />

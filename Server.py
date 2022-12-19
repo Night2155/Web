@@ -100,20 +100,17 @@ def search():
         print(keyword, len(keyword))
     if(len(keyword) > 0):
         bindingwords = "'%"+keyword+"%'"  # 字串串接
-        # query = '''
-        # SELECT   Grammer_id.Video_Title, Grammer_id.VideoID, Grammer_keywords.keywords
-        # FROM     Grammer_id INNER JOIN
-        #          Grammer_keywords ON Grammer_id.Grammer_id = Grammer_keywords.Grammer_uid
-        # WHERE Grammer_id.Video_Title LIKE '''+bindingwords+''' OR Grammer_keywords.keywords LIKE '''+bindingwords
-        query = '''SELECT Grammar_Table.Video_Title, Grammar_Table.VideoID, Grammar_Table.keywords FROM  Grammar_Table
-                WHERE Video_Title LIKE '''+bindingwords + ''' OR keywords LIKE '''+bindingwords
-    elif(len(keyword) == 0):
-        query = ''' SELECT * FROM Grammar_Table '''
-        # query = '''
-        # SELECT   Grammer_id.Video_Title, Grammer_id.VideoID, Grammer_keywords.keywords
-        # FROM     Grammer_id INNER JOIN
-        #          Grammer_keywords ON Grammer_id.Grammer_id = Grammer_keywords.Grammer_uid
-        # '''
+        query = '''
+        SELECT Grammar_Table.Video_Title, Grammar_Table.VideoID, Grammar_Table.keywords FROM Grammar_Table
+        WHERE Video_Title LIKE '''+bindingwords + ''' OR keywords LIKE '''+bindingwords + '''
+        union
+        SELECT Reading_Table.Video_Title, Reading_Table.VideoID, Reading_Table.keywords FROM Reading_Table
+        WHERE Video_Title LIKE '''+bindingwords + ''' OR keywords LIKE '''+bindingwords + '''
+        union
+        SELECT Writing_Table.Video_Title, Writing_Table.VideoID, Writing_Table.keywords FROM Writing_Table
+        WHERE Video_Title LIKE '''+bindingwords + ''' OR keywords LIKE '''+bindingwords
+        # query = '''SELECT Grammar_Table.Video_Title, Grammar_Table.VideoID, Grammar_Table.keywords FROM  Grammar_Table
+        #         WHERE Video_Title LIKE '''+bindingwords + ''' OR keywords LIKE '''+bindingwords
 
     result = db.engine.execute(query).fetchall()
     result = ChangeDataToList(result)

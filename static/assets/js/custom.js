@@ -56,7 +56,7 @@
       },
     },
   });
-
+  console.log($(".owl-listing"))
   // Menu Dropdown Toggle
   if ($(".menu-trigger").length) {
     $(".menu-trigger").on("click", function () {

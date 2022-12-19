@@ -12,9 +12,9 @@ function Get_Data(data_Path, data_List){
     // alert("SUCCESS!!!");
     // console.log(typeof (Jdata));
     $(document.getElementById(data_List)).html('');
-    var top = "<div class=\"item\"> <div class=\"row\">"
-    var end = "</div> </div>"
-    var content = "<div class=\"col-lg-12\"> <div class=\"listing-item\">"
+    var top = '<div class="item"> <div class="row">';
+    var end = '</div> </div>';
+    var content = '<div class="col-lg-12"> <div class="listing-item">'
     var Page1,Page2,Page3
     Page1 = Pages(Jdata,end,content, Page1,0,6)
     Page2 = Pages(Jdata,end,content, Page2,6,13)
@@ -26,7 +26,7 @@ function Get_Data(data_Path, data_List){
     $(document.getElementById(data_List)).append(result);
   },
   error: function () {
-    // alert("ERROR!!!");
+    // alert("ERROR!!!");-
     console.log("傳遞資料錯誤");
   },
 });
@@ -34,21 +34,21 @@ function Get_Data(data_Path, data_List){
 function Pages(Jdata,end,content,Pages,x,y){
   for (var i = x; i < y; i++) {
       var video_image =
-          '<a href=\"https://www.youtube.com/watch?v=' +
+          '<a href="https://www.youtube.com/watch?v=' +
           Jdata[i]["video_id"] +
-          '" target = "_blank"\>' +
-          '<img src=\"https://img.youtube.com/vi/'+
+          '" target = "_blank">' +
+          '<img src="https://img.youtube.com/vi/'+
           Jdata[i]["video_id"] +
-          '/mqdefault.jpg\" style = "display:block; width:450px; height:250px;" />' +
+          '/mqdefault.jpg" style = "display:block; width:450px; height:250px;" />' +
           '</a>';
       var video_content =
-          '<div class=\"right-content align-self-center\">' +
-          '<a href=\"https://www.youtube.com/watch?v='+
-          Jdata[i]["video_id"] + '"target = "_blank"\>' +
+          '<div class="right-content align-self-center">' +
+          '<a href="https://www.youtube.com/watch?v='+
+          Jdata[i]["video_id"] + '"target = "_blank">' +
           '<h5>'+
           Jdata[i]["Title"] +
           '</h5></a>'+
-          '<span class=\"details\">' +
+          '<span class="details">' +
           'Keywords: ' +
           '<em>' +
           Jdata[i]["keywords"] +

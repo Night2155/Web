@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>測試中請勿打擾</title>
+  <title>英文教學小助手</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="" />
   <meta name="author" content="" />
@@ -82,7 +82,7 @@
               <div class="grid">
                 <div class="container-fluid tm-container-content tm-mt-60">
                   <div class="row mb-4">
-                    <h2 class="col-6 tm-text-primary">All Videos</h2>
+                    <h2 class="col-6 tm-text-primary" id="List_status">All Videos</h2>
                   </div>
                   <div class="row tm-mb-90 tm-gallery" id="video_list">
                     {% for result in result1 %}
@@ -97,7 +97,7 @@
                       </figure>
                       <div class="d-flex flex-column justify-content-between tm-text-gray">
                         <span class="titles">
-                          title:<em>{{result.titles}}</em>
+                          title:<em>{{result.Title}}</em>
                         </span>
                         <span class="keywords">
                           keywords:<em>{{result.keywords}}</em>
