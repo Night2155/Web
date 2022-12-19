@@ -16,10 +16,10 @@ function AskDataFromServer(){
                 $(document.getElementById("video_list")).html("");
                 for(var i = 0; i < data.length; i++){
                 //     var top = '{% for result in '+ data +' %}';
-                    var content = '<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">' +
+                    var content = 
+                        '<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">' +
                         '<figure className="effect-ming tm-video-item">' +
-                        '<img src="https://img.youtube.com/vi/'+ data[i]["video_id"] +'/mqdefault.jpg" alt="Image"' +
-                        'class="img-fluid" />' +
+                        '<img src="https://img.youtube.com/vi/'+ data[i]["video_id"] +'/mqdefault.jpg" alt="Image" class="img-fluid" />' +
                         '<figcaption class="d-flex align-items-center justify-content-center">' +
                         '<h2>watch</h2>' +
                         '<a href="https://www.youtube.com/watch?v='+ data[i]["video_id"] +'" target="_blank">View more</a>' +
