@@ -14,7 +14,15 @@ db = SQLAlchemy(app)
 mybot = aiml.Kernel()
 mybot.learn("./chat_robot/*.aiml")
 # mybot.respond('load aiml b')
-
+KeyWordsInDB = []
+def ReadFileInArray(path):
+    with open(path, encoding='utf-8-sig') as f:
+        data_read = f.read().splitlines()
+        array_data = data_read
+    f.close
+    return array_data
+KeyWordsInDB = ReadFileInArray("Data/filtered_all_keywords.txt")
+print(KeyWordsInDB)
 
 @app.route("/", methods=['GET', 'POST'])
 def homepage():
@@ -128,8 +136,12 @@ def robot_response():
 def robot_response_HomePage():
     if request.method == 'POST':
         user_text = request.values.get('user_Text')
-        print(user_text[0:4])
-        response = mybot.respond(user_text)
+        print(user_text)
+        for item in KeyWordsInDB:
+            if item in user_text:
+                print(item)
+                response = mybot.respond(item)
+
         if user_text[0:4] == "我想搜尋":
             response = "不好意思 此功能正在維修 請在ALL Video使用此功能"
     return response
