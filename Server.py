@@ -23,7 +23,7 @@ def ReadFileInArray(path):
     f.close
     return array_data
 KeyWordsInDB = ReadFileInArray("Data/filtered_all_keywords.txt")
-print(KeyWordsInDB)
+# print(KeyWordsInDB)
 
 @app.route("/", methods=['GET', 'POST'])
 def homepage():
@@ -145,16 +145,37 @@ def search():
 def robot_response():
     if request.method == 'POST':
         user_text = request.values.get('user_Text')
-        print(user_text[0:4])
+        print(user_text)
         for item in KeyWordsInDB:
             if item in user_text:
                 print(item)
-                response = mybot.respond(item)
+                # response = mybot.respond(item)
+                bindingwords = "'%" + item + "%'"  # 字串串接
+                query = '''
+                        SELECT Grammar_Table.Video_Title, Grammar_Table.VideoID, Grammar_Table.keywords FROM Grammar_Table
+                        WHERE Video_Title LIKE ''' + bindingwords + ''' OR keywords LIKE ''' + bindingwords + '''
+                        union
+                        SELECT Reading_Table.Video_Title, Reading_Table.VideoID, Reading_Table.keywords FROM Reading_Table
+                        WHERE Video_Title LIKE ''' + bindingwords + ''' OR keywords LIKE ''' + bindingwords + '''
+                        union
+                        SELECT Writing_Table.Video_Title, Writing_Table.VideoID, Writing_Table.keywords FROM Writing_Table
+                        WHERE video_Title LIKE ''' + bindingwords + ''' OR keywords LIKE ''' + bindingwords
+                result = db.engine.execute(query).fetchall()
+                result = ChangeDataToList(result)
+                result_len = len(result)
+                result_ran_index = random.randint(0, result_len - 1)
+                response_text = result[result_ran_index]['Title']
+                url = "https://www.youtube.com/watch?v=" + result[result_ran_index]['video_id']
+                robot_response = mybot.respond("回應推薦影片")
+                # response = f"{robot_response}\n{response_text}\n{url}"
+                response = robot_response + '<br>' + response_text + "<br>" + '<a href = ' + url + ' target =_blank >' + url + '</a>'
                 break
             else:
                 response = mybot.respond("對話未進入辭庫")
-        if user_text[0:4] == "我想搜尋":
-            response = response.replace(" ", "")
+    # if user_text[0:4] == "我想搜尋":
+    #     response = response.replace(" ", "")
+    #     response = mybot.respond(user_text)
+
     return response
 
 @app.route("/robot2", methods=['GET', 'POST'])
@@ -188,8 +209,8 @@ def robot_response_HomePage():
                 break
             else:
                 response = mybot.respond("對話未進入辭庫")
-        if user_text[0:4] == "我想搜尋":
-            response = "不好意思 此功能正在維修 請在ALL Video使用此功能"
+        # if user_text[0:4] == "我想搜尋":
+        #     response = "不好意思 此功能正在維修 請在ALL Video使用此功能"
     return response
 
 def ChangeDataToList(data):
