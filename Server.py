@@ -172,10 +172,10 @@ def robot_response():
                 break
             else:
                 response = mybot.respond("對話未進入辭庫")
-    # if user_text[0:4] == "我想搜尋":
-    #     response = response.replace(" ", "")
-    #     response = mybot.respond(user_text)
-
+        if user_text[0:4] == "我想搜尋":
+            response = mybot.respond(user_text)
+            print("機器人回應:" + response)
+            response = response.replace(" ", "")
     return response
 
 @app.route("/robot2", methods=['GET', 'POST'])

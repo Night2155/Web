@@ -1,7 +1,7 @@
 <aiml version="1.0.1" encoding="UTF-8">
    <category>
       <pattern>文法</pattern>
-      <template>您是說搜尋文法嗎?</template>
+      <template>您是說文法嗎?</template>
    </category>
 
    <category>
