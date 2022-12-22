@@ -24,4 +24,16 @@
             已幫您搜尋<star/>
         </template>
     </category>
+    <category>
+        <pattern>對話未進入辭庫</pattern>
+        <template>
+            不好意思! 不清楚您的問題，以下為您推薦常用關鍵字: 現在完成式、文法、時態
+        </template>
+    </category>
+    <category>
+        <pattern>回應推薦影片</pattern>
+        <template>
+            為您推薦這部影片:
+        </template>
+    </category>
 </aiml>
