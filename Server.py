@@ -9,7 +9,8 @@ import random
 app = Flask(__name__)
 # 連接資料庫
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://DESKTOP-GPKL4Q4\SQLEXPRESS/Video_data?driver=SQL+Server'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://DESKTOP-GPKL4Q4\SQLEXPRESS/Video_data?driver=SQL+Server'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://DESKTOP-O23QA8S\SQLEXPRESS/Video_data?driver=SQL+Server'
 db = SQLAlchemy(app)
 # Robot Path and Learning Path
 mybot = aiml.Kernel()

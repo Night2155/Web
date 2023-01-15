@@ -20,12 +20,12 @@
   <link rel="stylesheet" href="/static/assets/css/templatemo-plot-listing.css" />
   <link rel="stylesheet" href="/static/assets/css/animated.css" />
   <link rel="stylesheet" href="/static/assets/css/owl.css" />
-  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/assets/css/bootstrap.min.css" />
   <link rel="stylesheet" href="/static/fontawesome/css/all.min.css" />
-  <link rel="stylesheet" href="/static/css/templatemo-style.css" />
-  <link rel="stylesheet" href="/static/css/chatroom.css" />
+  <link rel="stylesheet" href="/static/assets/css/templatemo-style.css" />
+  <link rel="stylesheet" href="/static/assets/css/chatroom.css" />
   <link rel="stylesheet" href="/static/assets/css/gotop.css" />
-  <link rel="stylesheet" href="/static/css/pageload.css"/>
+  <link rel="stylesheet" href="/static/assets/css/pageload.css"/>
 
   <script src="/static/vendor/jquery/jquery.min.js"></script>
   <!--參考模板 TemplateMo 556 Catalog-Z https://templatemo.com/tm-556-catalog-z -->
@@ -40,9 +40,9 @@
   </div>
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand">
         <!-- <i class="fas fa-film mr-2"></i> -->
-        <img id="AI_icon" src="/static/img/asistente-robot.gif" alt="AI_Robot" />
+        <img id="AI_icon" src="/static/assets/images/asistente-robot.gif" alt="AI_Robot" />
         英文教學影片小助手
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -64,7 +64,7 @@
   </nav>
 
   <div class="tm-hero d-flex justify-content-center align-items-center"
-    style="background-image: url(/static/img/demo.jpg)">
+    style="background-image: url(/static/assets/images/demo.jpg)">
 <!--    <form class="d-flex tm-search-form">-->
       <input class="form-control tm-search-input" id="search_bar" type="search" placeholder="Search" aria-label="Search" />
       <button class="btn btn-outline-success tm-search-btn" id="search_btn" type="submit" onclick="AskDataFromServer()">
@@ -130,7 +130,7 @@
   </div>
   <!-- chatroom -->
   <div class="chatbubble">
-    <img src="/static/img/ai.png" alt="picture" />
+    <img src="/static/assets/images/ai.png" alt="picture" />
   </div>
   <div class="chatbox chatbox22 chatbox--tray">
     <div class="chatbox__title">
@@ -149,7 +149,7 @@
     <div class="chatbox__body" id="chatroom_body">
       <!--Robot message-->
       <div class="chatbox__body__message chatbox__body__message--left">
-        <img src="/static/img/ai.png" alt="Picture" />
+        <img src="/static/assets/images/ai.png" alt="Picture" />
         <div class="ul_section_full">
           <ul class="ul_msg">
             <li><strong>AI_Robot</strong></li>
@@ -158,7 +158,7 @@
         </div>
       </div>
       <div class="chatbox__body__message chatbox__body__message--left">
-        <img src="/static/img/ai.png" alt="Picture" />
+        <img src="/static/assets/images/ai.png" alt="Picture" />
         <div class="ul_section_full">
           <ul class="ul_msg">
             <li><strong>AI_Robot</strong></li>
@@ -167,7 +167,7 @@
         </div>
       </div>
       <div class="chatbox__body__message chatbox__body__message--left">
-        <img src="/static/img/ai.png" alt="Picture" />
+        <img src="/static/assets/images/ai.png" alt="Picture" />
         <div class="ul_section_full">
           <ul class="ul_msg">
             <li><strong>AI_Robot</strong></li>
@@ -214,7 +214,7 @@
         var chats = $("#btn-input").val();
         var top =
           '<div class="chatbox__body__message chatbox__body__message--right">';
-        var userimag = '<img src="/static/img/man.png" alt="Picture" />';
+        var userimag = '<img src="/static/assets/images/man.png" alt="Picture" />';
         var user_chat_section = '<div class="ul_section_full">';
         var user_msg = '<ul class="ul_msg">';
         var user_name = "<li><strong>User</strong></li>";
@@ -248,7 +248,7 @@
             }
             var top =
               '<div class="chatbox__body__message chatbox__body__message--left">';
-            var robot_img = '<img src="/static/img/ai.png" alt="Picture" />';
+            var robot_img = '<img src="/static/assets/images/ai.png" alt="Picture" />';
             var robot_text_section = '<div class="ul_section_full">';
             var robot_msg = '<ul class="ul_msg">';
             var robot_name = "<li><strong>AI_Robot</strong></li>";
@@ -308,7 +308,7 @@
             About Professor
           </h3>
           <ul class="tm-footer-links pl-0">
-            <a href="https://ilearning.csie.stust.edu.tw/Kitty/" target="_blank"><img src="../static/img/kitty.png"
+            <a href="https://ilearning.csie.stust.edu.tw/Kitty/" target="_blank"><img src="/static/assets/images/kitty.png"
                 class="img-style" /></a>
           </ul>
         </div>
@@ -357,11 +357,11 @@
   <script src="/static/assets/js/imagesloaded.js"></script>
   <script src="/static/assets/js/custom.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="/static/js/chatroom.js"></script>
-  <script src="/static/js/plugins.js"></script>
+  <script src="/static/assets/js/chatroom.js"></script>
+  <script src="/static/assets/js/plugins.js"></script>
   <script src="/static/assets/js/gotop.js"></script>
-  <script src="/static/js/ShowVideoOnSecondpage.js"></script>
-  <script src="/static/js/keypress.js"></script>
+  <script src="/static/assets/js/ShowVideoOnSecondpage.js"></script>
+  <script src="/static/assets/js/keypress.js"></script>
   <!--    <script src="/static/js/ShowVideoOnHomepage.js"></script>-->
   <script>
     $(window).on("load", function () {
